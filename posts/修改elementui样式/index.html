@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="修改elementUI样式">
+<meta itemprop="description" content="最近做一个需求，需要把之前写的系统样式全部修改成统一的设计样式。
+由于之前的系统是使用element-ui做的，本身用的element-ui的组件不多，基本都是table,select,input等几个标签。
+有两种思路：
+ 不考虑scoped的话，在全局写一个element-ui的样式，xxx.css或者xxx.scss，在全局引入该文件。
+ 考虑scoped的话，可以使用 /deep/ 或者 &gt;&gt;&gt; 操作符。
+  因为开发的系统基本全部使用的element-ui的样式，基本没有自己写css，所以可以使用方法1。
+使用 &gt;&gt;&gt; 或者 /deep/ 示例
+&lt;style lang=&#34;scss&#34; scoped&gt; .home { // *** } .home /deep/ .skeleton{ background: red; /deep/ .header { background: pink; } /deep/ .like-wrapper { background: #fff; /deep/ .title{ /deep/ .img{ border: 1px solid red; } /deep/ .text{ width: 300px; border-top: 1px solid green; } } } } &lt;/style&gt;">
+
+
+<meta itemprop="datePublished" content="2019-10-12T19:06:29&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-12T19:06:29&#43;08:00" />
+<meta itemprop="wordCount" content="61">
+
+
+
+<meta itemprop="keywords" content="css," />
+<meta property="og:title" content="修改elementUI样式" />
+<meta property="og:description" content="最近做一个需求，需要把之前写的系统样式全部修改成统一的设计样式。
+由于之前的系统是使用element-ui做的，本身用的element-ui的组件不多，基本都是table,select,input等几个标签。
+有两种思路：
+ 不考虑scoped的话，在全局写一个element-ui的样式，xxx.css或者xxx.scss，在全局引入该文件。
+ 考虑scoped的话，可以使用 /deep/ 或者 &gt;&gt;&gt; 操作符。
+  因为开发的系统基本全部使用的element-ui的样式，基本没有自己写css，所以可以使用方法1。
+使用 &gt;&gt;&gt; 或者 /deep/ 示例
+&lt;style lang=&#34;scss&#34; scoped&gt; .home { // *** } .home /deep/ .skeleton{ background: red; /deep/ .header { background: pink; } /deep/ .like-wrapper { background: #fff; /deep/ .title{ /deep/ .img{ border: 1px solid red; } /deep/ .text{ width: 300px; border-top: 1px solid green; } } } } &lt;/style&gt;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caychance.github.io/posts/%E4%BF%AE%E6%94%B9elementui%E6%A0%B7%E5%BC%8F/" />
+<meta property="article:published_time" content="2019-10-12T19:06:29&#43;08:00"/>
+<meta property="article:modified_time" content="2019-10-12T19:06:29&#43;08:00"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog-pics.pek3b.qingstor.com/blog-bg.jpg"/>
+
+<meta name="twitter:title" content="修改elementUI样式"/>
+<meta name="twitter:description" content="最近做一个需求，需要把之前写的系统样式全部修改成统一的设计样式。
+由于之前的系统是使用element-ui做的，本身用的element-ui的组件不多，基本都是table,select,input等几个标签。
+有两种思路：
+ 不考虑scoped的话，在全局写一个element-ui的样式，xxx.css或者xxx.scss，在全局引入该文件。
+ 考虑scoped的话，可以使用 /deep/ 或者 &gt;&gt;&gt; 操作符。
+  因为开发的系统基本全部使用的element-ui的样式，基本没有自己写css，所以可以使用方法1。
+使用 &gt;&gt;&gt; 或者 /deep/ 示例
+&lt;style lang=&#34;scss&#34; scoped&gt; .home { // *** } .home /deep/ .skeleton{ background: red; /deep/ .header { background: pink; } /deep/ .like-wrapper { background: #fff; /deep/ .title{ /deep/ .img{ border: 1px solid red; } /deep/ .text{ width: 300px; border-top: 1px solid green; } } } } &lt;/style&gt;"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>修改elementUI样式</title>
+	<link rel="stylesheet" href="https://caychance.github.io/css/style.min.dd79093c4182a93c3e42f319c6c2e0cc57eea73243940591c2b1793115d784ec.css" integrity="sha256-3XkJPEGCqTw+QvMZxsLgzFfupzJDlAWRwrF5MRXXhOw=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://caychance.github.io">CayChance の Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://caychance.github.io/posts/">Posts</a>
+				<a href="https://caychance.github.io/about-me/">About Me</a>
+				<a href="https://caychance.github.io/grocery/">Grocery Store</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://kalasearch.cn/" target="_blank" rel="noopener me" title="卡拉搜索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://caychance.github.io/posts/">Posts</a></li>
+			<li><a href="https://caychance.github.io/about-me/">About Me</a></li>
+			<li><a href="https://caychance.github.io/grocery/">Grocery Store</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Oct 12, 2019</span></div>
+				<h1>修改elementUI样式</h1>
+			</header>
+			<div class="content">
+				<hr />
+
+<p>最近做一个需求，需要把之前写的系统样式全部修改成统一的设计样式。</p>
+
+<p>由于之前的系统是使用element-ui做的，本身用的element-ui的组件不多，基本都是table,select,input等几个标签。</p>
+
+<p>有两种思路：</p>
+
+<ol>
+<li><p>不考虑scoped的话，在全局写一个element-ui的样式，xxx.css或者xxx.scss，在全局引入该文件。</p></li>
+
+<li><p>考虑scoped的话，可以使用 /deep/ 或者 &gt;&gt;&gt; 操作符。</p></li>
+</ol>
+
+<p>因为开发的系统基本全部使用的element-ui的样式，基本没有自己写css，所以可以使用方法1。</p>
+
+<p>使用 &gt;&gt;&gt; 或者 /deep/ 示例</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="o">&lt;</span><span class="nt">style</span> <span class="nt">lang</span><span class="o">=</span><span class="s2">&#34;scss&#34;</span> <span class="nt">scoped</span><span class="o">&gt;</span>
+<span class="nc">.home</span> <span class="p">{</span>
+  <span class="c1">// ***
+</span><span class="c1"></span><span class="p">}</span>
+<span class="nc">.home</span> <span class="o">/</span><span class="nt">deep</span><span class="o">/</span> <span class="nc">.skeleton</span><span class="p">{</span>
+  <span class="nt">background</span><span class="nd">:</span> <span class="nt">red</span><span class="o">;</span>
+  <span class="o">/</span><span class="nt">deep</span><span class="o">/</span> <span class="nc">.header</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nt">pink</span><span class="o">;</span>
+  <span class="p">}</span>
+  <span class="o">/</span><span class="nt">deep</span><span class="o">/</span> <span class="nc">.like-wrapper</span> <span class="p">{</span>
+    <span class="nt">background</span><span class="nd">:</span> <span class="nn">#fff</span><span class="o">;</span>
+    <span class="o">/</span><span class="nt">deep</span><span class="o">/</span> <span class="nc">.title</span><span class="p">{</span>
+      <span class="o">/</span><span class="nt">deep</span><span class="o">/</span> <span class="nc">.img</span><span class="p">{</span>
+        <span class="nt">border</span><span class="nd">:</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nt">red</span><span class="o">;</span>
+      <span class="p">}</span>
+      <span class="o">/</span><span class="nt">deep</span><span class="o">/</span> <span class="nc">.text</span><span class="p">{</span>
+        <span class="nt">width</span><span class="nd">:</span> <span class="nt">300px</span><span class="o">;</span>
+        <span class="nt">border-top</span><span class="nd">:</span> <span class="nt">1px</span> <span class="nt">solid</span> <span class="nt">green</span><span class="o">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">&lt;/</span><span class="nt">style</span><span class="o">&gt;</span></code></pre></div>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://caychance.github.io/tags/css">css</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>61 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-10-12 11:06 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://caychance.github.io/posts/vue%E4%B8%ADv-for%E4%B9%8Bkey/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>Vue中v-for之key</span>
+			</a>
+			<a class="prev-post" href="https://caychance.github.io/posts/%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>代码分析</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://caychance.github.io">CayChance</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://caychance.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://caychance.github.io/js/bundle.min.490e43e5af6db5906f28afa49a4e16bf9f626b758e3fca92f146b870eb94bb37.js" integrity="sha256-SQ5D5a9ttZBvKK+kmk4Wv59ia3WOP8qS8Ua4cOuUuzc=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Highcharts on CayChance の Blog</title>
+    <link>https://caychance.github.io/tags/highcharts/</link>
+    <description>Recent content in Highcharts on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 31 Oct 2019 11:52:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/tags/highcharts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何给Highchart折线图添加阴影</title>
+      <link>https://caychance.github.io/posts/%E5%A6%82%E4%BD%95%E7%BB%99highchart%E6%8A%98%E7%BA%BF%E5%9B%BE%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/</link>
+      <pubDate>Thu, 31 Oct 2019 11:52:54 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%A6%82%E4%BD%95%E7%BB%99highchart%E6%8A%98%E7%BA%BF%E5%9B%BE%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/</guid>
+      <description>最近遇到一些使用Highcharts开发图表的需求，需要把图表设置成带shadow的。类似这样子的效果：
+由于英文不太好，中文文档又不太齐全。害得我花了好半天的时间。配置在倒数第7行的代码
+// 设置如下 { chart: { events: { // 加载页面的时候绘制一些按钮之类的东西  load: function(event) { let x = event.target.chartWidth * 0.5; this.flashText = this.renderer .text( `&amp;lt;div align=&amp;#34;right&amp;#34; &amp;gt;&amp;lt;div id=&amp;#34;${item.key}&amp;#34; style=&amp;#34;display:none;&amp;#34;&amp;gt;&amp;lt;button style=&amp;#34;height:31px;width:84px;background:&amp;#34;#f7f7f7&amp;#34; class=&amp;#34;btn green pull-right&amp;#34; data-toggle=&amp;#34;modal&amp;#34;&amp;gt;&amp;lt;font size=&amp;#34;2&amp;#34;&amp;gt;&amp;lt;b&amp;gt;detail info&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/button&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;`, x + 100, 20, true ) .attr({ zIndex: 101 }) .add(); }, // 图表放大的时候  selection: event =&amp;gt; { if (event.xAxis) { let btn = document.getElementById(`${item.key}`); btn.style.display = &amp;#34;block&amp;#34;; btn.removeEventListener(&amp;#34;click&amp;#34;, this.detailInfo); let min = Math.</description>
+    </item>
+    
+  </channel>
+</rss>

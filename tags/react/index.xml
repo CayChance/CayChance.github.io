@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on CayChance の Blog</title>
+    <link>https://caychance.github.io/tags/react/</link>
+    <description>Recent content in react on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 12 Aug 2019 18:53:42 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React初识</title>
+      <link>https://caychance.github.io/posts/react%E5%88%9D%E8%AF%86/</link>
+      <pubDate>Mon, 12 Aug 2019 18:53:42 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/react%E5%88%9D%E8%AF%86/</guid>
+      <description>作为前端的三大框架之一，react在国外的使用范围还是特别广泛的，最近在看react的入门学习视频。React16免费视频教程（共28集）
+总结几点react中的学习心得：
+ react和vue一样，render函数是不允许有多个根元素。如果我非要在页面显示多个根元素呢？可以使用 Fragment 标签 类似vue中的v-html，react中叫做 dangerouslySetInnerHTML={{ __html: this.state.title }}（PS：此处是两个大括号） react中render函数中的class叫做className，这么做的目的是为了区分关键字class label的属性for改为htmlFor react中的添加方法使用onClick render函数中{}大括号表示这里是js代码 不可以直接修改state的值，需要使用setState方法 父子组件传值  父组件中引入子组件标签后，在标签中使用自定义的属性来传递属性和方法。例如：key,content,index,deleteItem
+子组件中使用this.props
+// 父组件 import React, { Component, Fragment } from &amp;#34;react&amp;#34;; import Listitem from &amp;#34;./Listitem&amp;#34;; class Todolist extends Component { constructor(props) { super(props) this.state = { inputValue: &amp;#39;test&amp;#39;, list: [&amp;#39;test1&amp;#39;, &amp;#39;test2&amp;#39;], title: `&amp;lt;h3&amp;gt;Todolist&amp;lt;/h3&amp;gt;` } } inputChange(e) { this.setState({ inputValue: e.target.value }) } addList = ()=&amp;gt; { let newList = [...this.state.list, this.state.inputValue] this.</description>
+    </item>
+    
+  </channel>
+</rss>

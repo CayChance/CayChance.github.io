@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UI组件 on CayChance の Blog</title>
+    <link>https://caychance.github.io/tags/ui%E7%BB%84%E4%BB%B6/</link>
+    <description>Recent content in UI组件 on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 31 Oct 2019 11:53:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/tags/ui%E7%BB%84%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IView使用中遇到的一些坑</title>
+      <link>https://caychance.github.io/posts/iview%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
+      <pubDate>Thu, 31 Oct 2019 11:53:35 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/iview%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
+      <description>最近开发中使用iView遇到了一个问题，困扰了很久。使用了iView的Modal组件和Form组件。
+问题总结 iView的Modal组件中暴露两个事件——点击确定和取消的回调。@on-ok和@on-cancel。如果Modal中嵌入表单并且表单需要校验的话，不可以使用Modal提供的on-ok方法。需要自己加一个Button单独添加事件来处理。
+&amp;lt;Modal title=&amp;#34;修改名称&amp;#34; v-model=&amp;#34;setAliasModal&amp;#34; :mask-closable=&amp;#34;false&amp;#34; @on-cancel=&amp;#34;resetSetAlias&amp;#34;&amp;gt; &amp;lt;Form ref=&amp;#34;setalias&amp;#34; :model=&amp;#34;setAliasData&amp;#34; :label-width=&amp;#34;80&amp;#34; :rules=&amp;#34;aliasrules&amp;#34;&amp;gt; &amp;lt;FormItem label=&amp;#34;方法名称&amp;#34; prop=&amp;#34;aliasName&amp;#34;&amp;gt; &amp;lt;Input v-model=&amp;#34;setAliasData.aliasName&amp;#34; :maxlength=&amp;#34;25&amp;#34; placeholder=&amp;#34;请输入新的方法名(最长不超过25)&amp;#34;&amp;gt;&amp;lt;/Input&amp;gt; &amp;lt;/FormItem&amp;gt; &amp;lt;/Form&amp;gt; &amp;lt;template slot=&amp;#34;footer&amp;#34;&amp;gt; &amp;lt;Button type=&amp;#34;text&amp;#34; @click=&amp;#34;resetSetAlias&amp;#34;&amp;gt;取消&amp;lt;/Button&amp;gt; &amp;lt;Button type=&amp;#34;primary&amp;#34; @click=&amp;#34;setAliasHandleSubmit&amp;#34;&amp;gt;保存&amp;lt;/Button&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/Modal&amp;gt; 需求描述 需求是Modal组件中嵌套Form组件，需要进行表单规则校验，如果校验通过，则关闭Modal进行后续逻辑；如果校验不通过，那么Modal不能关闭，提示用户规则校验不通过。
+Form表单提供了 this.$refs[&amp;quot;xxx&amp;quot;].validate 方法来校验规则。
+如果使用Modal提供的@on-ok事件来处理的话，不管校验是否通过，都会默认关闭Modal的。
+所以处理的方法，是不要使用Modal提供的@on-ok方法，自己写两个Button来分别处理取消和确定的事件。</description>
+    </item>
+    
+  </channel>
+</rss>

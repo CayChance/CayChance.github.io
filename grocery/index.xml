@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Groceries on CayChance の Blog</title>
+    <link>https://caychance.github.io/grocery/</link>
+    <description>Recent content in Groceries on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Wed, 30 Oct 2019 13:35:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/grocery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何正确的与人沟通</title>
+      <link>https://caychance.github.io/grocery/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E4%B8%8E%E4%BA%BA%E6%B2%9F%E9%80%9A/</link>
+      <pubDate>Wed, 30 Oct 2019 13:35:28 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/grocery/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E4%B8%8E%E4%BA%BA%E6%B2%9F%E9%80%9A/</guid>
+      <description>工作这两年多的时间，对上家公司的一位同事印象特别深刻。Freeman——前公司(凡普金科集团)的首席人力资源官。
+印象最深刻的是我们17届校招生刚进公司，他给我们做的几场培训。也是迄今为止，我觉得人生中收获最大的一节课——如何高效的与人沟通。
+和别人沟通的时候  作为发起方，首先你给对方表述你的观点或者别的云云，当你讲完以后，你都问对方一句，我表达清楚了么？你能给我复述一下么？然后对方复述的时候，你听对方的复述和你表达的意思是否一致。有问题及时反馈交流。
+作为另一方，在你听完对方的表述以后，你要说一句，我给你复述一遍，你看我理解的跟你表达的是不是一个意思。直到对方和你都确定理解了相互彼此的意思才算你们沟通完成了。
+ 这样子，可以有效的避免双方沟通过程中发生理解不一致的情况。
+记得还有次培训，他在提问到了我：这位同学，你做什么的。我以为他问的是我在公司做的什么项目(其实问的是我的岗位)，我说小凡分期。然后大家哈哈哈的笑，结果他就说，这个大家不要笑哈，因为每个人所处的环境和经历的东西以及所受到的教育都不一样，你觉得理所应当可以明白的东西，别人确实不一定理解。
+还有就是，你和别人表达一个观点的时候，如果别人没有听明白，不一定是别人的问题，也有可能是你自己就没有表达清楚。
+人生中要是能多遇到一些或者多听一些这样的人的观点，一定会受益匪浅的。</description>
+    </item>
+    
+    <item>
+      <title>2019.09小记</title>
+      <link>https://caychance.github.io/grocery/2019.09%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Mon, 23 Sep 2019 17:03:54 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/grocery/2019.09%E5%B0%8F%E8%AE%B0/</guid>
+      <description>最近比较，忙到都没有时间来做一些总结。
+项目上的一些感想：
+ 作为一个开发，开发的过程中要时时刻刻站在用户的角度上，要考虑到一些用户体验的问题，比如，请求时间过长，用户等待时间过长进而导致用户流失等一些问题。
+ 学会正确的和别人沟通，真的很重要。这一点自我感觉个人做的还不错，但是工作中，各式各样的人都有，有些人和别人沟通起来就及其的低情商，导致你会特别生气。遇到这种情况，也需要保持好心态，莫要生气。
+  </description>
+    </item>
+    
+    <item>
+      <title>开发中经常会遇到的坑</title>
+      <link>https://caychance.github.io/grocery/%E5%BC%80%E5%8F%91%E4%B8%AD%E7%BB%8F%E5%B8%B8%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</link>
+      <pubDate>Tue, 10 Sep 2019 17:42:52 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/grocery/%E5%BC%80%E5%8F%91%E4%B8%AD%E7%BB%8F%E5%B8%B8%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/</guid>
+      <description> localStorage和sessionStorage在使用的时候，键值对总是以字符串的形式存储。不管什么类型的数据都会被转成string。   另外，localStorage 中的键值对总是以字符串的形式存储。 (需要注意, 和js对象相比, 键值对总是以字符串的形式存储意味着数值类型会自动转化为字符串类型).
+ </description>
+    </item>
+    
+    <item>
+      <title>2019年8月20日随记</title>
+      <link>https://caychance.github.io/grocery/2019%E5%B9%B48%E6%9C%8820%E6%97%A5%E9%9A%8F%E8%AE%B0/</link>
+      <pubDate>Tue, 20 Aug 2019 20:19:37 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/grocery/2019%E5%B9%B48%E6%9C%8820%E6%97%A5%E9%9A%8F%E8%AE%B0/</guid>
+      <description>现在每天到了8点以后，整个人就比较迷糊，脑袋昏昏沉沉，反应能力，思考能力还有记忆力都不如白天状态那么好。
+讲真，这样子的状态不太适合程序员这个工作诶。
+都说程序员上午不干活，从下午2点才开始，越到晚上越精神。而我，越到晚上越没精神。
+晚上在家里可以躺床上看看学习之类的视频，状态都比在公司强撑着好很多。</description>
+    </item>
+    
+    <item>
+      <title>程序员真的可以改变世界</title>
+      <link>https://caychance.github.io/grocery/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9C%9F%E7%9A%84%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E4%B8%96%E7%95%8C/</link>
+      <pubDate>Thu, 01 Aug 2019 19:47:39 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/grocery/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9C%9F%E7%9A%84%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E4%B8%96%E7%95%8C/</guid>
+      <description>最近遇到一个特别有意思的网站——HELLOGITHUB——一个专门收集一些比较好玩有意思的github的网站。
+网站每个月更新一期，每一期会推送很多精彩的项目，也不局限任何开发语言。
+有人因为各大音乐软件的版权，自己做了一个chrome插件，可以搜集到各大平台的音乐资源。解决的痛点问题——某个音乐平台因为版权的问题，搜不到一些歌曲，我们不得不下载并且打开另一个app。
+有人做了分析成都房价的网页，从后台，前端页面一套全部独立完成。
+有人做了一个不限速的百度网盘，解决的很多人的痛点。
+有人做了使用js去实现截屏。
+&amp;hellip;等等，太多了，就不一一列举了。
+有几点感触：首先，兴趣很重要；其次，我现在的这个职业还是有无线的上限的，就是只要你有idea，那么你就能做出比较🐂🍺的事情；最后，生也有涯，而知也无涯，加油干吧</description>
+    </item>
+    
+    <item>
+      <title>关于食物和胃的记忆</title>
+      <link>https://caychance.github.io/grocery/%E5%85%B3%E4%BA%8E%E9%A3%9F%E7%89%A9%E5%92%8C%E8%83%83%E7%9A%84%E8%AE%B0%E5%BF%86/</link>
+      <pubDate>Mon, 29 Jul 2019 18:51:39 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/grocery/%E5%85%B3%E4%BA%8E%E9%A3%9F%E7%89%A9%E5%92%8C%E8%83%83%E7%9A%84%E8%AE%B0%E5%BF%86/</guid>
+      <description>胃真的是一个很神奇的器官，不管你离家有多远，只要你能吃到一份正宗的家乡美食，你的记忆、情感都会被短暂的带回到家乡。
+很小的时候，就会包饺子。因此，每年过年除夕晚上都会陪家里人一起包饺子。以至于现在总觉得一起团聚或者跟好久不见的朋友难得见面，有机会就想包一顿饺子。想吃是一方面，可另一方面就是喜欢那种氛围。一堆人围坐在一起，一起聊着天，手里不停的摆弄着盆盆碗碗里面的那些馅儿，面皮。
+陕西盛产面食，各种面食，眼花缭乱。有一种面食——麻食。每逢下雨或者天寒总想吃一碗热乎乎的麻食，里面的配菜必要有木耳，平菇，切成丁的豆腐干和干香菇丁，也必定要配上陕西的辣椒油，一顿能吃两大老碗。
+陕西的豆腐脑也和别的地方不一样，中国的豆腐脑南甜北咸，不好意思，陕西是酸辣的。北京这边的豆腐脑都是浇那种咸的卤子，第一次吃的时候，简直要抓狂。后来就没再吃过了。陕西的豆腐脑，需要需要倒上特质的醋水，必定要加上辣椒油，单想想就直流哈喇子。
+其实食物本身并没有它应有的口味，终归还是看你的胃的记忆和家的记忆。</description>
+    </item>
+    
+  </channel>
+</rss>

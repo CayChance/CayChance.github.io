@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="IView使用中遇到的一些坑">
+<meta itemprop="description" content="最近开发中使用iView遇到了一个问题，困扰了很久。使用了iView的Modal组件和Form组件。
+问题总结 iView的Modal组件中暴露两个事件——点击确定和取消的回调。@on-ok和@on-cancel。如果Modal中嵌入表单并且表单需要校验的话，不可以使用Modal提供的on-ok方法。需要自己加一个Button单独添加事件来处理。
+&lt;Modal title=&#34;修改名称&#34; v-model=&#34;setAliasModal&#34; :mask-closable=&#34;false&#34; @on-cancel=&#34;resetSetAlias&#34;&gt; &lt;Form ref=&#34;setalias&#34; :model=&#34;setAliasData&#34; :label-width=&#34;80&#34; :rules=&#34;aliasrules&#34;&gt; &lt;FormItem label=&#34;方法名称&#34; prop=&#34;aliasName&#34;&gt; &lt;Input v-model=&#34;setAliasData.aliasName&#34; :maxlength=&#34;25&#34; placeholder=&#34;请输入新的方法名(最长不超过25)&#34;&gt;&lt;/Input&gt; &lt;/FormItem&gt; &lt;/Form&gt; &lt;template slot=&#34;footer&#34;&gt; &lt;Button type=&#34;text&#34; @click=&#34;resetSetAlias&#34;&gt;取消&lt;/Button&gt; &lt;Button type=&#34;primary&#34; @click=&#34;setAliasHandleSubmit&#34;&gt;保存&lt;/Button&gt; &lt;/template&gt; &lt;/Modal&gt; 需求描述 需求是Modal组件中嵌套Form组件，需要进行表单规则校验，如果校验通过，则关闭Modal进行后续逻辑；如果校验不通过，那么Modal不能关闭，提示用户规则校验不通过。
+Form表单提供了 this.$refs[&quot;xxx&quot;].validate 方法来校验规则。
+如果使用Modal提供的@on-ok事件来处理的话，不管校验是否通过，都会默认关闭Modal的。
+所以处理的方法，是不要使用Modal提供的@on-ok方法，自己写两个Button来分别处理取消和确定的事件。">
+
+
+<meta itemprop="datePublished" content="2019-10-31T11:53:35&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-31T11:53:35&#43;08:00" />
+<meta itemprop="wordCount" content="39">
+
+
+
+<meta itemprop="keywords" content="css,UI组件," />
+<meta property="og:title" content="IView使用中遇到的一些坑" />
+<meta property="og:description" content="最近开发中使用iView遇到了一个问题，困扰了很久。使用了iView的Modal组件和Form组件。
+问题总结 iView的Modal组件中暴露两个事件——点击确定和取消的回调。@on-ok和@on-cancel。如果Modal中嵌入表单并且表单需要校验的话，不可以使用Modal提供的on-ok方法。需要自己加一个Button单独添加事件来处理。
+&lt;Modal title=&#34;修改名称&#34; v-model=&#34;setAliasModal&#34; :mask-closable=&#34;false&#34; @on-cancel=&#34;resetSetAlias&#34;&gt; &lt;Form ref=&#34;setalias&#34; :model=&#34;setAliasData&#34; :label-width=&#34;80&#34; :rules=&#34;aliasrules&#34;&gt; &lt;FormItem label=&#34;方法名称&#34; prop=&#34;aliasName&#34;&gt; &lt;Input v-model=&#34;setAliasData.aliasName&#34; :maxlength=&#34;25&#34; placeholder=&#34;请输入新的方法名(最长不超过25)&#34;&gt;&lt;/Input&gt; &lt;/FormItem&gt; &lt;/Form&gt; &lt;template slot=&#34;footer&#34;&gt; &lt;Button type=&#34;text&#34; @click=&#34;resetSetAlias&#34;&gt;取消&lt;/Button&gt; &lt;Button type=&#34;primary&#34; @click=&#34;setAliasHandleSubmit&#34;&gt;保存&lt;/Button&gt; &lt;/template&gt; &lt;/Modal&gt; 需求描述 需求是Modal组件中嵌套Form组件，需要进行表单规则校验，如果校验通过，则关闭Modal进行后续逻辑；如果校验不通过，那么Modal不能关闭，提示用户规则校验不通过。
+Form表单提供了 this.$refs[&quot;xxx&quot;].validate 方法来校验规则。
+如果使用Modal提供的@on-ok事件来处理的话，不管校验是否通过，都会默认关闭Modal的。
+所以处理的方法，是不要使用Modal提供的@on-ok方法，自己写两个Button来分别处理取消和确定的事件。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caychance.github.io/posts/iview%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/" />
+<meta property="article:published_time" content="2019-10-31T11:53:35&#43;08:00"/>
+<meta property="article:modified_time" content="2019-10-31T11:53:35&#43;08:00"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog-pics.pek3b.qingstor.com/blog-bg.jpg"/>
+
+<meta name="twitter:title" content="IView使用中遇到的一些坑"/>
+<meta name="twitter:description" content="最近开发中使用iView遇到了一个问题，困扰了很久。使用了iView的Modal组件和Form组件。
+问题总结 iView的Modal组件中暴露两个事件——点击确定和取消的回调。@on-ok和@on-cancel。如果Modal中嵌入表单并且表单需要校验的话，不可以使用Modal提供的on-ok方法。需要自己加一个Button单独添加事件来处理。
+&lt;Modal title=&#34;修改名称&#34; v-model=&#34;setAliasModal&#34; :mask-closable=&#34;false&#34; @on-cancel=&#34;resetSetAlias&#34;&gt; &lt;Form ref=&#34;setalias&#34; :model=&#34;setAliasData&#34; :label-width=&#34;80&#34; :rules=&#34;aliasrules&#34;&gt; &lt;FormItem label=&#34;方法名称&#34; prop=&#34;aliasName&#34;&gt; &lt;Input v-model=&#34;setAliasData.aliasName&#34; :maxlength=&#34;25&#34; placeholder=&#34;请输入新的方法名(最长不超过25)&#34;&gt;&lt;/Input&gt; &lt;/FormItem&gt; &lt;/Form&gt; &lt;template slot=&#34;footer&#34;&gt; &lt;Button type=&#34;text&#34; @click=&#34;resetSetAlias&#34;&gt;取消&lt;/Button&gt; &lt;Button type=&#34;primary&#34; @click=&#34;setAliasHandleSubmit&#34;&gt;保存&lt;/Button&gt; &lt;/template&gt; &lt;/Modal&gt; 需求描述 需求是Modal组件中嵌套Form组件，需要进行表单规则校验，如果校验通过，则关闭Modal进行后续逻辑；如果校验不通过，那么Modal不能关闭，提示用户规则校验不通过。
+Form表单提供了 this.$refs[&quot;xxx&quot;].validate 方法来校验规则。
+如果使用Modal提供的@on-ok事件来处理的话，不管校验是否通过，都会默认关闭Modal的。
+所以处理的方法，是不要使用Modal提供的@on-ok方法，自己写两个Button来分别处理取消和确定的事件。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>IView使用中遇到的一些坑</title>
+	<link rel="stylesheet" href="https://caychance.github.io/css/style.min.dd79093c4182a93c3e42f319c6c2e0cc57eea73243940591c2b1793115d784ec.css" integrity="sha256-3XkJPEGCqTw+QvMZxsLgzFfupzJDlAWRwrF5MRXXhOw=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://caychance.github.io">CayChance の Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://caychance.github.io/posts/">Posts</a>
+				<a href="https://caychance.github.io/about-me/">About Me</a>
+				<a href="https://caychance.github.io/grocery/">Grocery Store</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://kalasearch.cn/" target="_blank" rel="noopener me" title="卡拉搜索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://caychance.github.io/posts/">Posts</a></li>
+			<li><a href="https://caychance.github.io/about-me/">About Me</a></li>
+			<li><a href="https://caychance.github.io/grocery/">Grocery Store</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Oct 31, 2019</span></div>
+				<h1>IView使用中遇到的一些坑</h1>
+			</header>
+			<div class="content">
+				
+
+<hr />
+
+<p>最近开发中使用iView遇到了一个问题，困扰了很久。使用了iView的Modal组件和Form组件。</p>
+
+<h3 id="问题总结">问题总结<a href="#问题总结" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>iView的Modal组件中暴露两个事件——点击确定和取消的回调。<code>@on-ok</code>和<code>@on-cancel</code>。如果Modal中嵌入表单并且表单需要校验的话，不可以使用Modal提供的<code>on-ok</code>方法。需要自己加一个Button单独添加事件来处理。</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">Modal</span> 
+  <span class="na">title</span><span class="o">=</span><span class="s">&#34;修改名称&#34;</span> 
+  <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;setAliasModal&#34;</span> 
+  <span class="na">:mask-closable</span><span class="o">=</span><span class="s">&#34;false&#34;</span>
+  <span class="err">@</span><span class="na">on-cancel</span><span class="o">=</span><span class="s">&#34;resetSetAlias&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">Form</span> <span class="na">ref</span><span class="o">=</span><span class="s">&#34;setalias&#34;</span> <span class="na">:model</span><span class="o">=</span><span class="s">&#34;setAliasData&#34;</span> <span class="na">:label-width</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">:rules</span><span class="o">=</span><span class="s">&#34;aliasrules&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">FormItem</span> <span class="na">label</span><span class="o">=</span><span class="s">&#34;方法名称&#34;</span> <span class="na">prop</span><span class="o">=</span><span class="s">&#34;aliasName&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">Input</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;setAliasData.aliasName&#34;</span> <span class="na">:maxlength</span><span class="o">=</span><span class="s">&#34;25&#34;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&#34;请输入新的方法名(最长不超过25)&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">Input</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">FormItem</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">Form</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">template</span> <span class="na">slot</span><span class="o">=</span><span class="s">&#34;footer&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">Button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;resetSetAlias&#34;</span><span class="p">&gt;</span>取消<span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">Button</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;primary&#34;</span> <span class="err">@</span><span class="na">click</span><span class="o">=</span><span class="s">&#34;setAliasHandleSubmit&#34;</span><span class="p">&gt;</span>保存<span class="p">&lt;/</span><span class="nt">Button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">Modal</span><span class="p">&gt;</span></code></pre></div>
+<h3 id="需求描述">需求描述<a href="#需求描述" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>需求是Modal组件中嵌套Form组件，需要进行表单规则校验，如果校验通过，则关闭Modal进行后续逻辑；如果校验不通过，那么Modal不能关闭，提示用户规则校验不通过。</p>
+
+<p>Form表单提供了 <code>this.$refs[&quot;xxx&quot;].validate</code> 方法来校验规则。</p>
+
+<p><span style="color: red">如果使用Modal提供的<code>@on-ok</code>事件来处理的话，不管校验是否通过，都会默认关闭Modal的。</span></p>
+
+<p>所以处理的方法，是不要使用Modal提供的@on-ok方法，自己写两个Button来分别处理取消和确定的事件。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://caychance.github.io/tags/css">css</a></span><span class="tag"><a href="https://caychance.github.io/tags/ui%E7%BB%84%E4%BB%B6">UI组件</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>39 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-10-31 03:53 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://caychance.github.io/posts/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>滚动穿透处理方案</span>
+			</a>
+			<a class="prev-post" href="https://caychance.github.io/posts/%E5%A6%82%E4%BD%95%E7%BB%99highchart%E6%8A%98%E7%BA%BF%E5%9B%BE%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>如何给Highchart折线图添加阴影</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://caychance.github.io">CayChance</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://caychance.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://caychance.github.io/js/bundle.min.490e43e5af6db5906f28afa49a4e16bf9f626b758e3fca92f146b870eb94bb37.js" integrity="sha256-SQ5D5a9ttZBvKK+kmk4Wv59ia3WOP8qS8Ua4cOuUuzc=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

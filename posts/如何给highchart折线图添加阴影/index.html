@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="如何给Highchart折线图添加阴影">
+<meta itemprop="description" content="最近遇到一些使用Highcharts开发图表的需求，需要把图表设置成带shadow的。类似这样子的效果：
+由于英文不太好，中文文档又不太齐全。害得我花了好半天的时间。配置在倒数第7行的代码
+// 设置如下 { chart: { events: { // 加载页面的时候绘制一些按钮之类的东西  load: function(event) { let x = event.target.chartWidth * 0.5; this.flashText = this.renderer .text( `&lt;div align=&#34;right&#34; &gt;&lt;div id=&#34;${item.key}&#34; style=&#34;display:none;&#34;&gt;&lt;button style=&#34;height:31px;width:84px;background:&#34;#f7f7f7&#34; class=&#34;btn green pull-right&#34; data-toggle=&#34;modal&#34;&gt;&lt;font size=&#34;2&#34;&gt;&lt;b&gt;detail info&lt;/b&gt;&lt;/font&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`, x &#43; 100, 20, true ) .attr({ zIndex: 101 }) .add(); }, // 图表放大的时候  selection: event =&gt; { if (event.xAxis) { let btn = document.getElementById(`${item.key}`); btn.style.display = &#34;block&#34;; btn.removeEventListener(&#34;click&#34;, this.detailInfo); let min = Math.">
+
+
+<meta itemprop="datePublished" content="2019-10-31T11:52:54&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-31T11:52:54&#43;08:00" />
+<meta itemprop="wordCount" content="209">
+
+
+
+<meta itemprop="keywords" content="Highcharts," />
+<meta property="og:title" content="如何给Highchart折线图添加阴影" />
+<meta property="og:description" content="最近遇到一些使用Highcharts开发图表的需求，需要把图表设置成带shadow的。类似这样子的效果：
+由于英文不太好，中文文档又不太齐全。害得我花了好半天的时间。配置在倒数第7行的代码
+// 设置如下 { chart: { events: { // 加载页面的时候绘制一些按钮之类的东西  load: function(event) { let x = event.target.chartWidth * 0.5; this.flashText = this.renderer .text( `&lt;div align=&#34;right&#34; &gt;&lt;div id=&#34;${item.key}&#34; style=&#34;display:none;&#34;&gt;&lt;button style=&#34;height:31px;width:84px;background:&#34;#f7f7f7&#34; class=&#34;btn green pull-right&#34; data-toggle=&#34;modal&#34;&gt;&lt;font size=&#34;2&#34;&gt;&lt;b&gt;detail info&lt;/b&gt;&lt;/font&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`, x &#43; 100, 20, true ) .attr({ zIndex: 101 }) .add(); }, // 图表放大的时候  selection: event =&gt; { if (event.xAxis) { let btn = document.getElementById(`${item.key}`); btn.style.display = &#34;block&#34;; btn.removeEventListener(&#34;click&#34;, this.detailInfo); let min = Math." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caychance.github.io/posts/%E5%A6%82%E4%BD%95%E7%BB%99highchart%E6%8A%98%E7%BA%BF%E5%9B%BE%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/" />
+<meta property="article:published_time" content="2019-10-31T11:52:54&#43;08:00"/>
+<meta property="article:modified_time" content="2019-10-31T11:52:54&#43;08:00"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog-pics.pek3b.qingstor.com/blog-bg.jpg"/>
+
+<meta name="twitter:title" content="如何给Highchart折线图添加阴影"/>
+<meta name="twitter:description" content="最近遇到一些使用Highcharts开发图表的需求，需要把图表设置成带shadow的。类似这样子的效果：
+由于英文不太好，中文文档又不太齐全。害得我花了好半天的时间。配置在倒数第7行的代码
+// 设置如下 { chart: { events: { // 加载页面的时候绘制一些按钮之类的东西  load: function(event) { let x = event.target.chartWidth * 0.5; this.flashText = this.renderer .text( `&lt;div align=&#34;right&#34; &gt;&lt;div id=&#34;${item.key}&#34; style=&#34;display:none;&#34;&gt;&lt;button style=&#34;height:31px;width:84px;background:&#34;#f7f7f7&#34; class=&#34;btn green pull-right&#34; data-toggle=&#34;modal&#34;&gt;&lt;font size=&#34;2&#34;&gt;&lt;b&gt;detail info&lt;/b&gt;&lt;/font&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`, x &#43; 100, 20, true ) .attr({ zIndex: 101 }) .add(); }, // 图表放大的时候  selection: event =&gt; { if (event.xAxis) { let btn = document.getElementById(`${item.key}`); btn.style.display = &#34;block&#34;; btn.removeEventListener(&#34;click&#34;, this.detailInfo); let min = Math."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>如何给Highchart折线图添加阴影</title>
+	<link rel="stylesheet" href="https://caychance.github.io/css/style.min.dd79093c4182a93c3e42f319c6c2e0cc57eea73243940591c2b1793115d784ec.css" integrity="sha256-3XkJPEGCqTw+QvMZxsLgzFfupzJDlAWRwrF5MRXXhOw=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://caychance.github.io">CayChance の Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://caychance.github.io/posts/">Posts</a>
+				<a href="https://caychance.github.io/about-me/">About Me</a>
+				<a href="https://caychance.github.io/grocery/">Grocery Store</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://kalasearch.cn/" target="_blank" rel="noopener me" title="卡拉搜索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://caychance.github.io/posts/">Posts</a></li>
+			<li><a href="https://caychance.github.io/about-me/">About Me</a></li>
+			<li><a href="https://caychance.github.io/grocery/">Grocery Store</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Oct 31, 2019</span></div>
+				<h1>如何给Highchart折线图添加阴影</h1>
+			</header>
+			<div class="content">
+				<hr />
+
+<p>最近遇到一些使用Highcharts开发图表的需求，需要把图表设置成带shadow的。类似这样子的效果：</p>
+
+<p><img src="https://blog-pics.pek3b.qingstor.com/412803b3-c06b-4f7c-9a26-4011976f8dc1.png" alt="" /></p>
+
+<p>由于英文不太好，中文文档又不太齐全。害得我花了好半天的时间。配置在倒数第7行的代码</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 设置如下
+</span><span class="c1"></span><span class="p">{</span>
+  <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>
+      <span class="c1">// 加载页面的时候绘制一些按钮之类的东西
+</span><span class="c1"></span>      <span class="nx">load</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">chartWidth</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">;</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">flashText</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">renderer</span>
+          <span class="p">.</span><span class="nx">text</span><span class="p">(</span>
+            <span class="sb">`&lt;div align=&#34;right&#34; &gt;&lt;div id=&#34;</span><span class="si">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">key</span><span class="si">}</span><span class="sb">&#34; style=&#34;display:none;&#34;&gt;&lt;button  style=&#34;height:31px;width:84px;background:&#34;#f7f7f7&#34; class=&#34;btn green pull-right&#34; data-toggle=&#34;modal&#34;&gt;&lt;font size=&#34;2&#34;&gt;&lt;b&gt;detail info&lt;/b&gt;&lt;/font&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`</span><span class="p">,</span>
+            <span class="nx">x</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span>
+            <span class="mi">20</span><span class="p">,</span>
+            <span class="kc">true</span>
+          <span class="p">)</span>
+          <span class="p">.</span><span class="nx">attr</span><span class="p">({</span>
+            <span class="nx">zIndex</span><span class="o">:</span> <span class="mi">101</span>
+          <span class="p">})</span>
+          <span class="p">.</span><span class="nx">add</span><span class="p">();</span>
+      <span class="p">},</span>
+      <span class="c1">// 图表放大的时候
+</span><span class="c1"></span>      <span class="nx">selection</span><span class="o">:</span> <span class="nx">event</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">xAxis</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">let</span> <span class="nx">btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">key</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+          <span class="nx">btn</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;block&#34;</span><span class="p">;</span>
+          <span class="nx">btn</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">detailInfo</span><span class="p">);</span>
+          <span class="kd">let</span> <span class="nx">min</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">xAxis</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">min</span><span class="p">);</span>
+          <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">xAxis</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">max</span><span class="p">);</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">startTime</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getLogTimeWidthYearMonthDay</span><span class="p">[</span><span class="nx">min</span><span class="p">];</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">endTime</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getLogTimeWidthYearMonthDay</span><span class="p">[</span><span class="nx">max</span><span class="p">];</span>
+          <span class="nx">btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">detailInfo</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">zoomType</span><span class="o">:</span> <span class="s2">&#34;x&#34;</span>
+  <span class="p">},</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">title</span>
+  <span class="p">},</span>
+  <span class="nx">subtitle</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">text</span><span class="o">:</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">ontouchstart</span> <span class="o">===</span> <span class="kc">undefined</span>
+        <span class="o">?</span> <span class="s2">&#34;鼠标拖动可以进行缩放&#34;</span>
+        <span class="o">:</span> <span class="s2">&#34;手势操作进行缩放&#34;</span>
+  <span class="p">},</span>
+  <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">categories</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">getLogTime</span>
+  <span class="p">},</span>
+  <span class="nx">tooltip</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">dateTimeLabelFormats</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">millisecond</span><span class="o">:</span> <span class="s2">&#34;%H:%M:%S.%L&#34;</span><span class="p">,</span>
+      <span class="nx">second</span><span class="o">:</span> <span class="s2">&#34;%H:%M:%S&#34;</span><span class="p">,</span>
+      <span class="nx">minute</span><span class="o">:</span> <span class="s2">&#34;%H:%M&#34;</span><span class="p">,</span>
+      <span class="nx">hour</span><span class="o">:</span> <span class="s2">&#34;%H:%M&#34;</span><span class="p">,</span>
+      <span class="nx">day</span><span class="o">:</span> <span class="s2">&#34;%Y-%m-%d&#34;</span><span class="p">,</span>
+      <span class="nx">week</span><span class="o">:</span> <span class="s2">&#34;%m-%d&#34;</span><span class="p">,</span>
+      <span class="nx">month</span><span class="o">:</span> <span class="s2">&#34;%Y-%m&#34;</span><span class="p">,</span>
+      <span class="nx">year</span><span class="o">:</span> <span class="s2">&#34;%Y&#34;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">yAxisName</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="nx">plotOptions</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">area</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">fillColor</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">linearGradient</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">x1</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">y1</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">x2</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="nx">y2</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">},</span>
+        <span class="nx">stops</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">getOptions</span><span class="p">().</span><span class="nx">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+          <span class="p">[</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Color</span><span class="p">(</span><span class="nx">Highcharts</span><span class="p">.</span><span class="nx">getOptions</span><span class="p">().</span><span class="nx">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+              <span class="p">.</span><span class="nx">setOpacity</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+              <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&#34;rgba&#34;</span><span class="p">)</span>
+          <span class="p">]</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="nx">marker</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">radius</span><span class="o">:</span> <span class="mi">1</span>
+      <span class="p">},</span>
+      <span class="nx">lineWidth</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nx">states</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">hover</span><span class="o">:</span> <span class="p">{</span>
+          <span class="nx">lineWidth</span><span class="o">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="nx">threshold</span><span class="o">:</span> <span class="kc">null</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="c1">// 此处设置type等于area就可以应用plotOptions中area的属性了
+</span><span class="c1"></span>      <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;area&#34;</span><span class="p">,</span>
+      <span class="nx">data</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">chartData</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">it</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">it</span><span class="p">[</span><span class="nx">item</span><span class="p">.</span><span class="nx">key</span><span class="p">];</span>
+      <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">};</span>
+</code></pre></div>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://caychance.github.io/tags/highcharts">Highcharts</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>209 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2019-10-31 03:52 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://caychance.github.io/posts/iview%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>IView使用中遇到的一些坑</span>
+			</a>
+			<a class="prev-post" href="https://caychance.github.io/posts/vue%E4%B8%ADv-for%E4%B9%8Bkey/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Vue中v-for之key</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://caychance.github.io">CayChance</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://caychance.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://caychance.github.io/js/bundle.min.490e43e5af6db5906f28afa49a4e16bf9f626b758e3fca92f146b870eb94bb37.js" integrity="sha256-SQ5D5a9ttZBvKK+kmk4Wv59ia3WOP8qS8Ua4cOuUuzc=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

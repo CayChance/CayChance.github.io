@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据库 on CayChance の Blog</title>
+    <link>https://caychance.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 数据库 on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Tue, 27 Oct 2020 10:52:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Express项目中使用Mongoose</title>
+      <link>https://caychance.github.io/posts/express%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8mongoose/</link>
+      <pubDate>Tue, 27 Oct 2020 10:52:28 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/express%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8mongoose/</guid>
+      <description>安装MongoDB 安装以及启动mongodb遇到好几个问题。
+首先，不能使用brew安装了，因为MongoDB不再开源了。
+后来就按照菜鸟教程上的安装方法进行安装：
+# 进入 /usr/local cd /usr/local # 下载 sudo curl -O https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-4.0.9.tgz # 解压 sudo tar -zxvf mongodb-osx-ssl-x86_64-4.0.9.tgz # 重命名为 mongodb 目录 sudo mv mongodb-osx-x86_64-4.0.9/ mongodb  菜鸟教程
+启动MongoDB 为MongoDB新建默认目录的时候执行命令如下
+sudo mkdir -p /data/db  结果报错，后来网上查了一下发现最新版的Mac系统：不允许更改根目录
+后来就在mac上新建了一个非根目录的目录当做MongoDB的默认目录。当然需要确保~/data/db目录存在。
+mongod --dbpath ~/data/db  参考地址
+生成express应用 可以express-generator来快速生成express应用，当然首先需要安装好express-generator。
+express mongooseDemo  暖风博客园</description>
+    </item>
+    
+    <item>
+      <title>MongoDB基础入门</title>
+      <link>https://caychance.github.io/posts/mongodb%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 01 Feb 2019 10:23:29 +0000</pubDate>
+      
+      <guid>https://caychance.github.io/posts/mongodb%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</guid>
+      <description>MongoDB基础入门（基础篇） 最新心血来潮，准备在网上学习一下Vue+Node+MongoDB。之前接触过MySQL，但是MongoDB跟MySQL还是有区别的。话不多说：
+基本概念    SQL术语/概念 MongoDB术语/概念 解释/说明     database database 数据库   table collection 数据库表/集合   row document 数据记录行/文档   column field 数据字段/域   index index 索引   table joins  表连接,MongoDB不支持   primary key primary key 主键,MongoDB自动将_id字段设置为主键    数据库  一个mongodb中可以建立多个数据库。
+ 每个数据库里面有多个表（也叫做集合）。
+ 表里面存储的数据格式就是一个json，这也是区别于SQL的地方。
+  下载安装 这一步就省略了，自己Google去吧。我在mac下用的homebrew
+连接数据库 在命令行中输入mongo就会连接到数据库
+数据库相关 show dbs 查看所有数据库</description>
+    </item>
+    
+  </channel>
+</rss>

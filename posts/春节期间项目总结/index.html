@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="春节期间项目总结">
+<meta itemprop="description" content="今年春节赶上了疫情，因此就在疫情期间，我们团队在家做了好几个项目。遇到一些问题，记录一下。
+主要做了四个项目，如下：  问卷调查项目 地址 疫情地图项目 地址 戴口罩项目 地址 找口罩项目 地址  问题总结收获如下：  苹果手机滚动不流畅问题
+解决方法：-webkit-overflow-scrolling: touch;
+ 上下滚动的轮播图 现象：疫情地图项目首页，有一个展示疫情资讯的轮播图。使用了vant的swipe轮播组件，遇到一个问题，随着滚动次数的增多，就会出现越来越大的偏移。
+  问题定位：通过定位问题发现，轮播图每次往上滚动的距离是 36.421875px，实际我们使用的是rem，rem的换算导致出现到小数点的距离，所以每次滚动都会出现偏移量，随着次数的增多，越来越明显。
+问题解决：更换了两次swipe组件后终于好了。 vue-awesome-swiper 传送门 点个赞~~~
+ dom没有渲染 现象：疫情项目首页，疫情地图tab，有一个本地疫情的卡片，前端获取到当前城市后，数据变了，但是页面没有改变。(PS:此处逻辑是前端调用后端接口获取定位，如果获取到定位，就展示当前定位城市的疫情，否则不展示。)  问题定位：vue中的数据变了，但是页面中没有更新。
+问题解决：强制重新渲染 this.$forceUpdate()
+ 两个span标签 同一行显示问题 现象：疫情项目，同行程查询页面。 其他及其后面的文字，都是用的是span标签。在设置了display: inline-block;后，其他及其后面的文字在后面的文字超出一行的时候，就不会同一行显示了。  问题解决：设置 display: inline-block; 为 display: inline; 或者说不设置就不会有这个问题。(PS:当时是另一个同事写的)
+PS: css也不简单
+ vue中监听对象的某个属性  computed: { urlHead(){ return this.projectInfo.urlHead } }, watch: { urlHead(newVal, oldVal){ this.servicePrefixListLabel=this.projectInfo.urlHead.split(&#39;://{host}:&#39;)[0], this.host=this.projectInfo.urlHead.split(&#39;://{host}:&#39;)[1] }, }   vue移动端项目粘贴功能  问题描述：刚开始使用的是 clipboard这个包，但是遇到了一些问题。按钮的点击事件根据情况，可以复制，也可以跳转页面。">
+
+
+<meta itemprop="datePublished" content="2020-02-13T13:58:52&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-13T13:58:52&#43;08:00" />
+<meta itemprop="wordCount" content="61">
+
+
+
+<meta itemprop="keywords" content="js," />
+<meta property="og:title" content="春节期间项目总结" />
+<meta property="og:description" content="今年春节赶上了疫情，因此就在疫情期间，我们团队在家做了好几个项目。遇到一些问题，记录一下。
+主要做了四个项目，如下：  问卷调查项目 地址 疫情地图项目 地址 戴口罩项目 地址 找口罩项目 地址  问题总结收获如下：  苹果手机滚动不流畅问题
+解决方法：-webkit-overflow-scrolling: touch;
+ 上下滚动的轮播图 现象：疫情地图项目首页，有一个展示疫情资讯的轮播图。使用了vant的swipe轮播组件，遇到一个问题，随着滚动次数的增多，就会出现越来越大的偏移。
+  问题定位：通过定位问题发现，轮播图每次往上滚动的距离是 36.421875px，实际我们使用的是rem，rem的换算导致出现到小数点的距离，所以每次滚动都会出现偏移量，随着次数的增多，越来越明显。
+问题解决：更换了两次swipe组件后终于好了。 vue-awesome-swiper 传送门 点个赞~~~
+ dom没有渲染 现象：疫情项目首页，疫情地图tab，有一个本地疫情的卡片，前端获取到当前城市后，数据变了，但是页面没有改变。(PS:此处逻辑是前端调用后端接口获取定位，如果获取到定位，就展示当前定位城市的疫情，否则不展示。)  问题定位：vue中的数据变了，但是页面中没有更新。
+问题解决：强制重新渲染 this.$forceUpdate()
+ 两个span标签 同一行显示问题 现象：疫情项目，同行程查询页面。 其他及其后面的文字，都是用的是span标签。在设置了display: inline-block;后，其他及其后面的文字在后面的文字超出一行的时候，就不会同一行显示了。  问题解决：设置 display: inline-block; 为 display: inline; 或者说不设置就不会有这个问题。(PS:当时是另一个同事写的)
+PS: css也不简单
+ vue中监听对象的某个属性  computed: { urlHead(){ return this.projectInfo.urlHead } }, watch: { urlHead(newVal, oldVal){ this.servicePrefixListLabel=this.projectInfo.urlHead.split(&#39;://{host}:&#39;)[0], this.host=this.projectInfo.urlHead.split(&#39;://{host}:&#39;)[1] }, }   vue移动端项目粘贴功能  问题描述：刚开始使用的是 clipboard这个包，但是遇到了一些问题。按钮的点击事件根据情况，可以复制，也可以跳转页面。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caychance.github.io/posts/%E6%98%A5%E8%8A%82%E6%9C%9F%E9%97%B4%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" />
+<meta property="article:published_time" content="2020-02-13T13:58:52&#43;08:00"/>
+<meta property="article:modified_time" content="2020-02-13T13:58:52&#43;08:00"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog-pics.pek3b.qingstor.com/blog-bg.jpg"/>
+
+<meta name="twitter:title" content="春节期间项目总结"/>
+<meta name="twitter:description" content="今年春节赶上了疫情，因此就在疫情期间，我们团队在家做了好几个项目。遇到一些问题，记录一下。
+主要做了四个项目，如下：  问卷调查项目 地址 疫情地图项目 地址 戴口罩项目 地址 找口罩项目 地址  问题总结收获如下：  苹果手机滚动不流畅问题
+解决方法：-webkit-overflow-scrolling: touch;
+ 上下滚动的轮播图 现象：疫情地图项目首页，有一个展示疫情资讯的轮播图。使用了vant的swipe轮播组件，遇到一个问题，随着滚动次数的增多，就会出现越来越大的偏移。
+  问题定位：通过定位问题发现，轮播图每次往上滚动的距离是 36.421875px，实际我们使用的是rem，rem的换算导致出现到小数点的距离，所以每次滚动都会出现偏移量，随着次数的增多，越来越明显。
+问题解决：更换了两次swipe组件后终于好了。 vue-awesome-swiper 传送门 点个赞~~~
+ dom没有渲染 现象：疫情项目首页，疫情地图tab，有一个本地疫情的卡片，前端获取到当前城市后，数据变了，但是页面没有改变。(PS:此处逻辑是前端调用后端接口获取定位，如果获取到定位，就展示当前定位城市的疫情，否则不展示。)  问题定位：vue中的数据变了，但是页面中没有更新。
+问题解决：强制重新渲染 this.$forceUpdate()
+ 两个span标签 同一行显示问题 现象：疫情项目，同行程查询页面。 其他及其后面的文字，都是用的是span标签。在设置了display: inline-block;后，其他及其后面的文字在后面的文字超出一行的时候，就不会同一行显示了。  问题解决：设置 display: inline-block; 为 display: inline; 或者说不设置就不会有这个问题。(PS:当时是另一个同事写的)
+PS: css也不简单
+ vue中监听对象的某个属性  computed: { urlHead(){ return this.projectInfo.urlHead } }, watch: { urlHead(newVal, oldVal){ this.servicePrefixListLabel=this.projectInfo.urlHead.split(&#39;://{host}:&#39;)[0], this.host=this.projectInfo.urlHead.split(&#39;://{host}:&#39;)[1] }, }   vue移动端项目粘贴功能  问题描述：刚开始使用的是 clipboard这个包，但是遇到了一些问题。按钮的点击事件根据情况，可以复制，也可以跳转页面。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>春节期间项目总结</title>
+	<link rel="stylesheet" href="https://caychance.github.io/css/style.min.dd79093c4182a93c3e42f319c6c2e0cc57eea73243940591c2b1793115d784ec.css" integrity="sha256-3XkJPEGCqTw+QvMZxsLgzFfupzJDlAWRwrF5MRXXhOw=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://caychance.github.io">CayChance の Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://caychance.github.io/posts/">Posts</a>
+				<a href="https://caychance.github.io/about-me/">About Me</a>
+				<a href="https://caychance.github.io/grocery/">Grocery Store</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://kalasearch.cn/" target="_blank" rel="noopener me" title="卡拉搜索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://caychance.github.io/posts/">Posts</a></li>
+			<li><a href="https://caychance.github.io/about-me/">About Me</a></li>
+			<li><a href="https://caychance.github.io/grocery/">Grocery Store</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Feb 13, 2020</span></div>
+				<h1>春节期间项目总结</h1>
+			</header>
+			<div class="content">
+				
+
+<hr />
+
+<p>今年春节赶上了疫情，因此就在疫情期间，我们团队在家做了好几个项目。遇到一些问题，记录一下。</p>
+
+<h4 id="主要做了四个项目-如下">主要做了四个项目，如下：<a href="#主要做了四个项目-如下" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ol>
+<li>问卷调查项目 <a href="https://promotion.elong.com/questionnaire/index.html#/">地址</a></li>
+<li>疫情地图项目 <a href="https://promotion.elong.com/epidemic/index.html#/index">地址</a></li>
+<li>戴口罩项目 <a href="https://promotion.elong.com/mask/index.html#/index">地址</a></li>
+<li>找口罩项目 <a href="https://promotion.elong.com/lookformask/index.html#/index">地址</a></li>
+</ol>
+
+<h4 id="问题总结收获如下">问题总结收获如下：<a href="#问题总结收获如下" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ol>
+<li><p>苹果手机滚动不流畅问题<br />
+解决方法：<code>-webkit-overflow-scrolling: touch;</code></p></li>
+
+<li><p>上下滚动的轮播图
+现象：疫情地图项目首页，有一个展示疫情资讯的轮播图。使用了vant的swipe轮播组件，遇到一个问题，随着滚动次数的增多，就会出现越来越大的偏移。</p></li>
+</ol>
+
+<p>问题定位：通过定位问题发现，轮播图每次往上滚动的距离是 36.421875px，实际我们使用的是rem，rem的换算导致出现到小数点的距离，所以每次滚动都会出现偏移量，随着次数的增多，越来越明显。</p>
+
+<p>问题解决：更换了两次swipe组件后终于好了。  <code>vue-awesome-swiper</code>  <a href="https://github.com/surmon-china/vue-awesome-swiper">传送门</a> 点个赞~~~</p>
+
+<ol>
+<li>dom没有渲染
+现象：疫情项目首页，疫情地图tab，有一个本地疫情的卡片，前端获取到当前城市后，数据变了，但是页面没有改变。(PS:此处逻辑是前端调用后端接口获取定位，如果获取到定位，就展示当前定位城市的疫情，否则不展示。)</li>
+</ol>
+
+<p>问题定位：vue中的数据变了，但是页面中没有更新。</p>
+
+<p>问题解决：强制重新渲染 <code>this.$forceUpdate()</code></p>
+
+<ol>
+<li>两个span标签 同一行显示问题
+现象：疫情项目，同行程查询页面。  其他及其后面的文字，都是用的是span标签。在设置了<code>display: inline-block;</code>后，其他及其后面的文字在后面的文字超出一行的时候，就不会同一行显示了。</li>
+</ol>
+
+<p>问题解决：设置 <code>display: inline-block;</code> 为 <code>display: inline;</code> 或者说不设置就不会有这个问题。(PS:当时是另一个同事写的)</p>
+
+<p>PS: css也不简单</p>
+
+<ol>
+<li>vue中监听对象的某个属性</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">computed</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">urlHead</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">projectInfo</span><span class="p">.</span><span class="nx">urlHead</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+<span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">urlHead</span><span class="p">(</span><span class="nx">newVal</span><span class="p">,</span> <span class="nx">oldVal</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">servicePrefixListLabel</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">projectInfo</span><span class="p">.</span><span class="nx">urlHead</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;://{host}:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">host</span><span class="o">=</span><span class="k">this</span><span class="p">.</span><span class="nx">projectInfo</span><span class="p">.</span><span class="nx">urlHead</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;://{host}:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>vue移动端项目粘贴功能</li>
+</ol>
+
+<p>问题描述：刚开始使用的是 <code>clipboard</code>这个包，但是遇到了一些问题。按钮的点击事件根据情况，可以复制，也可以跳转页面。</p>
+
+<p>问题处理：换了使用<code>vue-clipboard2</code>这个包。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://caychance.github.io/tags/js">js</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>61 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-02-13 05:58 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://caychance.github.io/posts/express%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8mongoose/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span>Express项目中使用Mongoose</span>
+			</a>
+			<a class="prev-post" href="https://caychance.github.io/posts/%E5%B0%8F%E7%BB%93/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>小结</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://caychance.github.io">CayChance</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://caychance.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://caychance.github.io/js/bundle.min.490e43e5af6db5906f28afa49a4e16bf9f626b758e3fca92f146b870eb94bb37.js" integrity="sha256-SQ5D5a9ttZBvKK+kmk4Wv59ia3WOP8qS8Ua4cOuUuzc=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

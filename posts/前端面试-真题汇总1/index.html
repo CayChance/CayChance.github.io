@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+
+<meta itemprop="name" content="前端面试-真题汇总1">
+<meta itemprop="description" content="写在前面的话 由于疫情的影响，公司整体的运营情况不太理想，加之领导的一些“莫名其妙”的行为，就有了离职的想法了。
+一些心得和总结 1、由于疫情影响，基本都是视频面试了。百分之95都不用去现场，通几轮技术面到HR面都是网上进行的。使用的软件也是五花八门，瞩目，牛客网，微信视频，腾讯会议，或者各公司自己研发的视频软件。（伴鱼当时就邀请去现场面试，后来一想，路上太远，来回2小时，有这时间都能面两个了，所以就拒了；然后京东1、2面过了以后3，4面邀请去的现场，除此以外就没有让去现场面试的了）
+2、面试真的很随机，完全看整个部门，尤其是面试官本身
+3、大厂好多都会问算法题，不过一般就是leetcode的简单题目
+4、手写题也很常见，比如bind，promise，promise all，防抖节流，深拷贝，发布订阅-EventEmitter，快排等（手写题可参考项目utils.js文件）
+5、每一轮面试都要好好准备，三四面也可能会被刷掉
+美团： 1、this作用域 var scope = 123; var obj = { scope: 456, getScope: function () { var scope = 789; console.log(scope); console.log(this.scope); var f = function() { console.log(scope); console.log(this.scope); } f(); }, }; obj.getScope(); // 1、说一下打印结果 // 2、getScope改成箭头函数的打印结果  2、原型和原型链 function A() {} var a = new A() A.prototype A.__proto__ a.__proto__ a.prototype  3、实现一个myReduce方法，使得与reduce方法作用一致 4、拓展题 请实现 reverseObject(obj, startIndex, endIndex) 方法。 扩展题：如何做到算法复杂度最小 示例：reverseObject(obj, 2, 5) const obj = { value: 12, next: { value: 13, next: { value: 14, next: { value: 15, next: { value: 16 } } } } } 变成： { value: 12, next: { value: 16, next: { value: 15, next: { value: 14, next: { value: 13 } } } } }  快手： 一面 1、this 作用域 var name = &#39;x&#39; var people = { name: &#39;y&#39;, setName: function(name) { this.">
+
+
+<meta itemprop="datePublished" content="2021-03-18T23:15:24&#43;08:00" />
+<meta itemprop="dateModified" content="2021-03-18T23:15:24&#43;08:00" />
+<meta itemprop="wordCount" content="466">
+
+
+
+<meta itemprop="keywords" content="面试,杂货铺," />
+<meta property="og:title" content="前端面试-真题汇总1" />
+<meta property="og:description" content="写在前面的话 由于疫情的影响，公司整体的运营情况不太理想，加之领导的一些“莫名其妙”的行为，就有了离职的想法了。
+一些心得和总结 1、由于疫情影响，基本都是视频面试了。百分之95都不用去现场，通几轮技术面到HR面都是网上进行的。使用的软件也是五花八门，瞩目，牛客网，微信视频，腾讯会议，或者各公司自己研发的视频软件。（伴鱼当时就邀请去现场面试，后来一想，路上太远，来回2小时，有这时间都能面两个了，所以就拒了；然后京东1、2面过了以后3，4面邀请去的现场，除此以外就没有让去现场面试的了）
+2、面试真的很随机，完全看整个部门，尤其是面试官本身
+3、大厂好多都会问算法题，不过一般就是leetcode的简单题目
+4、手写题也很常见，比如bind，promise，promise all，防抖节流，深拷贝，发布订阅-EventEmitter，快排等（手写题可参考项目utils.js文件）
+5、每一轮面试都要好好准备，三四面也可能会被刷掉
+美团： 1、this作用域 var scope = 123; var obj = { scope: 456, getScope: function () { var scope = 789; console.log(scope); console.log(this.scope); var f = function() { console.log(scope); console.log(this.scope); } f(); }, }; obj.getScope(); // 1、说一下打印结果 // 2、getScope改成箭头函数的打印结果  2、原型和原型链 function A() {} var a = new A() A.prototype A.__proto__ a.__proto__ a.prototype  3、实现一个myReduce方法，使得与reduce方法作用一致 4、拓展题 请实现 reverseObject(obj, startIndex, endIndex) 方法。 扩展题：如何做到算法复杂度最小 示例：reverseObject(obj, 2, 5) const obj = { value: 12, next: { value: 13, next: { value: 14, next: { value: 15, next: { value: 16 } } } } } 变成： { value: 12, next: { value: 16, next: { value: 15, next: { value: 14, next: { value: 13 } } } } }  快手： 一面 1、this 作用域 var name = &#39;x&#39; var people = { name: &#39;y&#39;, setName: function(name) { this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB1/" />
+<meta property="article:published_time" content="2021-03-18T23:15:24&#43;08:00"/>
+<meta property="article:modified_time" content="2021-03-18T23:15:24&#43;08:00"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://blog-pics.pek3b.qingstor.com/blog-bg.jpg"/>
+
+<meta name="twitter:title" content="前端面试-真题汇总1"/>
+<meta name="twitter:description" content="写在前面的话 由于疫情的影响，公司整体的运营情况不太理想，加之领导的一些“莫名其妙”的行为，就有了离职的想法了。
+一些心得和总结 1、由于疫情影响，基本都是视频面试了。百分之95都不用去现场，通几轮技术面到HR面都是网上进行的。使用的软件也是五花八门，瞩目，牛客网，微信视频，腾讯会议，或者各公司自己研发的视频软件。（伴鱼当时就邀请去现场面试，后来一想，路上太远，来回2小时，有这时间都能面两个了，所以就拒了；然后京东1、2面过了以后3，4面邀请去的现场，除此以外就没有让去现场面试的了）
+2、面试真的很随机，完全看整个部门，尤其是面试官本身
+3、大厂好多都会问算法题，不过一般就是leetcode的简单题目
+4、手写题也很常见，比如bind，promise，promise all，防抖节流，深拷贝，发布订阅-EventEmitter，快排等（手写题可参考项目utils.js文件）
+5、每一轮面试都要好好准备，三四面也可能会被刷掉
+美团： 1、this作用域 var scope = 123; var obj = { scope: 456, getScope: function () { var scope = 789; console.log(scope); console.log(this.scope); var f = function() { console.log(scope); console.log(this.scope); } f(); }, }; obj.getScope(); // 1、说一下打印结果 // 2、getScope改成箭头函数的打印结果  2、原型和原型链 function A() {} var a = new A() A.prototype A.__proto__ a.__proto__ a.prototype  3、实现一个myReduce方法，使得与reduce方法作用一致 4、拓展题 请实现 reverseObject(obj, startIndex, endIndex) 方法。 扩展题：如何做到算法复杂度最小 示例：reverseObject(obj, 2, 5) const obj = { value: 12, next: { value: 13, next: { value: 14, next: { value: 15, next: { value: 16 } } } } } 变成： { value: 12, next: { value: 16, next: { value: 15, next: { value: 14, next: { value: 13 } } } } }  快手： 一面 1、this 作用域 var name = &#39;x&#39; var people = { name: &#39;y&#39;, setName: function(name) { this."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>前端面试-真题汇总1</title>
+	<link rel="stylesheet" href="https://caychance.github.io/css/style.min.dd79093c4182a93c3e42f319c6c2e0cc57eea73243940591c2b1793115d784ec.css" integrity="sha256-3XkJPEGCqTw+QvMZxsLgzFfupzJDlAWRwrF5MRXXhOw=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://caychance.github.io">CayChance の Blog</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://caychance.github.io/posts/">Posts</a>
+				<a href="https://caychance.github.io/about-me/">About Me</a>
+				<a href="https://caychance.github.io/grocery/">Grocery Store</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a><a href="https://kalasearch.cn/" target="_blank" rel="noopener me" title="卡拉搜索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://caychance.github.io/posts/">Posts</a></li>
+			<li><a href="https://caychance.github.io/about-me/">About Me</a></li>
+			<li><a href="https://caychance.github.io/grocery/">Grocery Store</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Mar 18, 2021</span></div>
+				<h1>前端面试-真题汇总1</h1>
+			</header>
+			<div class="content">
+				
+
+<h3 id="写在前面的话">写在前面的话<a href="#写在前面的话" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>由于疫情的影响，公司整体的运营情况不太理想，加之领导的一些“莫名其妙”的行为，就有了离职的想法了。</p>
+
+<h3 id="一些心得和总结">一些心得和总结<a href="#一些心得和总结" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>1、由于疫情影响，基本都是视频面试了。百分之95都不用去现场，通几轮技术面到HR面都是网上进行的。使用的软件也是五花八门，瞩目，牛客网，微信视频，腾讯会议，或者各公司自己研发的视频软件。（伴鱼当时就邀请去现场面试，后来一想，路上太远，来回2小时，有这时间都能面两个了，所以就拒了；然后京东1、2面过了以后3，4面邀请去的现场，除此以外就没有让去现场面试的了）</p>
+
+<p>2、面试真的很随机，完全看整个部门，尤其是面试官本身</p>
+
+<p>3、大厂好多都会问算法题，不过一般就是leetcode的简单题目</p>
+
+<p>4、手写题也很常见，比如bind，promise，promise all，防抖节流，深拷贝，发布订阅-EventEmitter，快排等（手写题可参考项目utils.js文件）</p>
+
+<p>5、每一轮面试都要好好准备，三四面也可能会被刷掉</p>
+
+<h3 id="美团">美团：<a href="#美团" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<h4 id="1-this作用域">1、this作用域<a href="#1-this作用域" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">scope</span><span class="o">:</span> <span class="mi">456</span><span class="p">,</span>
+  <span class="nx">getScope</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">scope</span> <span class="o">=</span> <span class="mi">789</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">scope</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">scope</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">scope</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">scope</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">f</span><span class="p">();</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="nx">obj</span><span class="p">.</span><span class="nx">getScope</span><span class="p">();</span>
+<span class="c1">// 1、说一下打印结果
+</span><span class="c1">// 2、getScope改成箭头函数的打印结果
+</span></code></pre></div>
+<h4 id="2-原型和原型链">2、原型和原型链<a href="#2-原型和原型链" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">A</span><span class="p">()</span> <span class="p">{}</span>
+
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">A</span><span class="p">()</span>
+
+<span class="nx">A</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="nx">A</span><span class="p">.</span><span class="nx">__proto__</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">__proto__</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">prototype</span>
+</code></pre></div>
+<h4 id="3-实现一个myreduce方法-使得与reduce方法作用一致">3、实现一个myReduce方法，使得与reduce方法作用一致<a href="#3-实现一个myreduce方法-使得与reduce方法作用一致" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<h4 id="4-拓展题">4、拓展题<a href="#4-拓展题" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">请实现</span> <span class="nx">reverseObject</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">startIndex</span><span class="p">,</span> <span class="nx">endIndex</span><span class="p">)</span> <span class="nx">方法</span><span class="err">。</span>
+<span class="nx">扩展题</span><span class="err">：</span><span class="nx">如何做到算法复杂度最小</span>
+
+<span class="nx">示例</span><span class="err">：</span><span class="nx">reverseObject</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="k">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">value</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+  <span class="nx">next</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="nx">next</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">value</span><span class="o">:</span> <span class="mi">14</span><span class="p">,</span>
+      <span class="nx">next</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="nx">next</span><span class="o">:</span> <span class="p">{</span> 
+          <span class="nx">value</span><span class="o">:</span> <span class="mi">16</span> 
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">变成</span><span class="err">：</span>
+<span class="p">{</span>
+  <span class="nx">value</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+  <span class="nx">next</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">value</span><span class="o">:</span> <span class="mi">16</span><span class="p">,</span>
+    <span class="nx">next</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">value</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="nx">next</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">value</span><span class="o">:</span> <span class="mi">14</span><span class="p">,</span>
+        <span class="nx">next</span><span class="o">:</span> <span class="p">{</span> 
+          <span class="nx">value</span><span class="o">:</span> <span class="mi">13</span> 
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="快手">快手：<a href="#快手" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<h3 id="一面">一面<a href="#一面" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<h4 id="1-this-作用域">1、this 作用域<a href="#1-this-作用域" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span>
+<span class="kd">var</span> <span class="nx">people</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span>
+  <span class="nx">setName</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span>
+    <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="nx">people</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">people</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">getName</span><span class="p">())</span>
+<span class="c1">// 1、打印结果
+</span><span class="c1">// 2、setName改成箭头函数打印结果
+</span></code></pre></div>
+<h4 id="2-事件循环">2、事件循环<a href="#2-事件循环" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">)</span>
+<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;timer1&#39;</span><span class="p">)</span>
+  <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;promise1&#39;</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">},</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;timer2&#39;</span><span class="p">)</span>
+  <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;promise2&#39;</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">},</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;promise3&#39;</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="3-论述题">3、论述题<a href="#3-论述题" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<ol>
+<li>ES2016-2020新特性。async/await，import(&lsquo;./module&rsquo;)，obj?.prop，BigInt</li>
+<li>为什么JS中<code>0.1+0.2 !== 0.3</code>？如何解决？</li>
+<li>vue的scoped css是如何实现样式隔离的？css modules呢？</li>
+<li>移动端css布局单位了解哪些？rem对比vw？1px边框问题？</li>
+<li>了解哪些跨域方式？</li>
+<li>前端性能优化做过哪些工作？</li>
+</ol>
+
+<h4 id="4-手写防抖函数">4、手写防抖函数<a href="#4-手写防抖函数" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">debounce</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">time</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div>
+<h4 id="5-算法题">5、算法题<a href="#5-算法题" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">给定一个只包括</span> <span class="s1">&#39;(&#39;</span><span class="err">，</span><span class="s1">&#39;)&#39;</span><span class="err">，</span><span class="s1">&#39;{&#39;</span><span class="err">，</span><span class="s1">&#39;}&#39;</span> <span class="nx">的字符串</span><span class="err">，</span><span class="nx">判断字符串是否有效</span><span class="err">。</span>
+<span class="nx">有效字符串需满足</span><span class="err">：</span>
+<span class="nx">左括号必须用相同类型的右括号闭合</span><span class="err">。</span>
+<span class="nx">左括号必须以正确的顺序闭合</span><span class="err">。</span> 
+<span class="cm">/**
+</span><span class="cm"> * @param {String} str
+</span><span class="cm"> * @returns {Boolean}
+</span><span class="cm"> */</span>
+<span class="kd">function</span> <span class="nx">isValid</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">({)}</span> <span class="kc">false</span>
+<span class="p">({})</span> <span class="p">(){}</span> <span class="kc">true</span>
+</code></pre></div>
+<h3 id="二面">二面<a href="#二面" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<h4 id="1-原型链">1、原型链<a href="#1-原型链" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">A</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">arr</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">B</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span>
+<span class="nx">B</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">A</span><span class="p">()</span>
+
+<span class="kd">var</span> <span class="nx">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">B</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nx">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">B</span><span class="p">()</span>
+
+<span class="nx">a1</span><span class="p">.</span><span class="nx">arr</span><span class="o">=</span><span class="mi">2</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a2</span><span class="p">.</span><span class="nx">arr</span><span class="p">)</span>
+<span class="k">new</span> <span class="nx">A</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="2-css相关">2、css相关<a href="#2-css相关" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<p>2.1、权重问题
+2.2、左右，上下margin
+2.3、BFC
+2.4、</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">text-indent</span><span class="p">:</span> <span class="mi">3</span><span class="kt">em</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="nt">h1</span> <span class="p">{</span> <span class="k">font-size</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span> <span class="p">}</span></code></pre></div>
+<h4 id="3-手写promise-all">3、手写promise All<a href="#3-手写promise-all" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+
+<h4 id="4-算法题">4、算法题<a href="#4-算法题" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">用两个栈实现一个队列</span>
+
+<span class="kd">function</span> <span class="nx">Stack</span><span class="p">(){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">arr</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">pop</span> <span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span>  <span class="k">this</span><span class="p">.</span><span class="nx">arr</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">push</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">isEmpty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+         <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="o">&lt;=</span><span class="mi">0</span>    
+    <span class="p">}</span> 
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">stack1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nx">stack2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Stack</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="其他-promise相关的题目">其他（promise相关的题目）<a href="#其他-promise相关的题目" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 1、axios请求失败的时候再重试一遍
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">axiosAutoTry</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">axios</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="c1">// 有重试次数
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span><span class="p">.</span><span class="nx">__try_count</span> <span class="o">==</span> <span class="s2">&#34;number&#34;</span> <span class="o">&amp;&amp;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">__try_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;重试请求&#34;</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+          <span class="nx">data</span><span class="p">.</span><span class="nx">__try_count</span><span class="o">--</span><span class="p">;</span>
+          <span class="k">return</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">axiosAutoTry</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="nx">reject</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// 2、实现一个红绿灯
+</span><span class="c1">// 要求实现：红灯亮(打印)3s后，绿灯亮(打印)2s后，黄灯亮(打印)1s后循环
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="s2">&#34;yellow&#34;</span><span class="p">,</span> <span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="s2">&#34;red&#34;</span><span class="p">];</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="nx">num</span><span class="p">],</span> <span class="nx">num</span><span class="p">);</span>
+    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+    <span class="p">},</span> <span class="nx">num</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">light</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">num</span><span class="o">--</span><span class="p">;</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">light</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+<span class="nx">light</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+
+
+<span class="c1">// 3、已知fetch 是新的请求接口方法. 如: 获取user我们可以像下面这样调用:
+</span><span class="c1"></span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/user&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">user</span> <span class="p">=&gt;</span> <span class="p">{})</span>
+<span class="c1">// 请将fetch封装为一个函数xFetch, 让fetch 支持超时后返回,超时异常。调用方法如下所示
+</span><span class="c1"></span><span class="nx">xFetch</span><span class="p">(</span><span class="s1">&#39;/user&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">timeout</span><span class="o">:</span> <span class="mi">3000</span><span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;请求超时&#39;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">xFetch</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)=&gt;{</span>
+    <span class="nx">fetch</span><span class="p">(</span><span class="nx">path</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="p">=&gt;{</span>
+      <span class="nx">setTimeout</span><span class="p">(()=&gt;{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">reject</span><span class="p">({</span><span class="nx">code</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span>
+        <span class="p">}</span>
+      <span class="p">},</span> <span class="nx">params</span><span class="p">.</span><span class="nx">timeout</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://caychance.github.io/tags/%E9%9D%A2%E8%AF%95">面试</a></span><span class="tag"><a href="https://caychance.github.io/tags/%E6%9D%82%E8%B4%A7%E9%93%BA">杂货铺</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>466 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2021-03-18 15:15 &#43;0000</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%932/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>前端面试-面试题总结2</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://caychance.github.io">CayChance</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://caychance.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://caychance.github.io/js/bundle.min.490e43e5af6db5906f28afa49a4e16bf9f626b758e3fca92f146b870eb94bb37.js" integrity="sha256-SQ5D5a9ttZBvKK+kmk4Wv59ia3WOP8qS8Ua4cOuUuzc=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

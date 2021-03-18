@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面试 on CayChance の Blog</title>
+    <link>https://caychance.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
+    <description>Recent content in 面试 on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 18 Mar 2021 23:15:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>前端面试-真题汇总1</title>
+      <link>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB1/</link>
+      <pubDate>Thu, 18 Mar 2021 23:15:24 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB1/</guid>
+      <description>写在前面的话 由于疫情的影响，公司整体的运营情况不太理想，加之领导的一些“莫名其妙”的行为，就有了离职的想法了。
+一些心得和总结 1、由于疫情影响，基本都是视频面试了。百分之95都不用去现场，通几轮技术面到HR面都是网上进行的。使用的软件也是五花八门，瞩目，牛客网，微信视频，腾讯会议，或者各公司自己研发的视频软件。（伴鱼当时就邀请去现场面试，后来一想，路上太远，来回2小时，有这时间都能面两个了，所以就拒了；然后京东1、2面过了以后3，4面邀请去的现场，除此以外就没有让去现场面试的了）
+2、面试真的很随机，完全看整个部门，尤其是面试官本身
+3、大厂好多都会问算法题，不过一般就是leetcode的简单题目
+4、手写题也很常见，比如bind，promise，promise all，防抖节流，深拷贝，发布订阅-EventEmitter，快排等（手写题可参考项目utils.js文件）
+5、每一轮面试都要好好准备，三四面也可能会被刷掉
+美团： 1、this作用域 var scope = 123; var obj = { scope: 456, getScope: function () { var scope = 789; console.log(scope); console.log(this.scope); var f = function() { console.log(scope); console.log(this.scope); } f(); }, }; obj.getScope(); // 1、说一下打印结果 // 2、getScope改成箭头函数的打印结果  2、原型和原型链 function A() {} var a = new A() A.prototype A.__proto__ a.__proto__ a.prototype  3、实现一个myReduce方法，使得与reduce方法作用一致 4、拓展题 请实现 reverseObject(obj, startIndex, endIndex) 方法。 扩展题：如何做到算法复杂度最小 示例：reverseObject(obj, 2, 5) const obj = { value: 12, next: { value: 13, next: { value: 14, next: { value: 15, next: { value: 16 } } } } } 变成： { value: 12, next: { value: 16, next: { value: 15, next: { value: 14, next: { value: 13 } } } } }  快手： 一面 1、this 作用域 var name = &amp;#39;x&amp;#39; var people = { name: &amp;#39;y&amp;#39;, setName: function(name) { this.</description>
+    </item>
+    
+    <item>
+      <title>前端面试-面试题总结2</title>
+      <link>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%932/</link>
+      <pubDate>Thu, 18 Mar 2021 23:12:01 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%932/</guid>
+      <description>面试题部分 组件设计的原则  标准性 组件库要有统一设计原则，提供统一的api支持 独立性 组件要遵循单一职责原则，保持组件的纯粹性，除了统一的api对外提供，尽量不要和业务耦合 复用和易用 差异在内部消化，输入输出友好、易用 避免操作dom和使用ref 组件理论上只处理逻辑并不完成dom更新 良好统一的接口设计 合理的依赖关系，避免过度依赖和耦合过于严重 避免冗余状态 合理设置state，常亮和变量设置要合理  前端架构如何设计  一般分成项目层面的、标准化方面的、自动集成层面的 项目层面，用脚手架构建基本的开发目录，也就是src下，你还要重新划分这么几个目录：pages、components、store、utils、services、assets、styles。 标准化方面，可以从eslint、stylelint、git hooks、编辑器支持、等等方面着手，让代码更规范，甚至引入code review等等。 自动集成层面利用gitlab等工具，做自动化集成，部署等等。gitlab作为仓库，Jenkins作为发布平台。直接做那种自动push代码，自动发布功能。  前端提效  自动化部署平台 高效脚手架工具研发 组件库建设 自动化测试工具研发  webpack构建速度优化有哪些方式  分析打包速度和体积，合理进行优化  使用SMP(speed-measure-webpack-plugin) 速度分析 webpack-bundle-analyzer 体积分析  打包速度：
+ 多进程，多实例构建 thread-loader(将模块以及依赖分配给worker线程中) happypack(不建议对loader使用) parallel-webpack(可并行运行多个Webpack构建) 缩小打包作用域 exclude/include (确定 loader 规则范围，babel-loader不去解析node_modules) resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找) resolve.extensions 尽可能减少后缀尝试的可能性 noParse 忽略不需要解析的库 Jquery, loadsh 利用缓存提升速率 babel-loader开启缓存 使用cache-loader等 开启DLL 分包。使用DllPlugin进行分包，能把第三方库代码分离开，每次文件更改的时候，它只会打包该项目自身的代码。合理使用manifest.json文件 减少对不频繁更新的库的编译。使用 DllPlugin 将不频繁更新的库进行编译以后，当这些依赖的版本没有变化时，就不需要重新编译  打包体积优化</description>
+    </item>
+    
+    <item>
+      <title>前端面试-常见手写题总结3</title>
+      <link>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B8%B8%E8%A7%81%E6%89%8B%E5%86%99%E9%A2%98%E6%80%BB%E7%BB%933/</link>
+      <pubDate>Thu, 18 Mar 2021 23:02:37 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B8%B8%E8%A7%81%E6%89%8B%E5%86%99%E9%A2%98%E6%80%BB%E7%BB%933/</guid>
+      <description>手写题部分 理解每个手写题的思路很重要，不需要死记硬背。
+// es5手写call Function.prototype.call = function (context) { var context = context || window; context.fn = this; var args = []; for (var i = 1, len = arguments.length; i &amp;lt; len; i++) { args.push(&amp;#34;arguments[&amp;#34; + i + &amp;#34;]&amp;#34;); } var result = eval(&amp;#34;context.fn(&amp;#34; + args + &amp;#34;)&amp;#34;); delete context.fn; return result; }; // es5手写apply Function.prototype.apply = function (context, arr) { var context = context || window; context.fn = this; var result; if (!</description>
+    </item>
+    
+    <item>
+      <title>面试小记</title>
+      <link>https://caychance.github.io/posts/%E9%9D%A2%E8%AF%95%E5%B0%8F%E8%AE%B0/</link>
+      <pubDate>Fri, 12 Apr 2019 23:53:48 +0000</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E9%9D%A2%E8%AF%95%E5%B0%8F%E8%AE%B0/</guid>
+      <description>CSS部分 css三列布局，两边固定宽度，中间自适应 两栏布局(至少三种，float/absolute/flex) 三栏布局(双飞翼/圣杯/flex) BFC(产生条件、用途) 产生条件：
+ body根元素 float元素 float不等于none 绝对定位 absolute fixed display等于inline-block、table-cells、flex overflow除了visible以外的值hidden、auto、scroll  BFC的用途/特性：
+ 同一个BFC中的margin会重叠 浮动的元素会脱离普通文档流，但是BFC却可以包含浮动的元素，即消除浮动。 BFC可以阻止元素被浮动元素覆盖。  传送门-BFC详细了解
+用border画一个半圆/三角形  三角形  width: 0; height: 0; border-top: 50px solid blue; border-right: 50px solid red; border-bottom: 50px solid green; border-left: 50px solid yellow;  半圆  width: 100px; height: 50px; border-radius: 50px 50px 0 0; background: pink; 弹出框 实现向内旋转的效果(transform: rotateY) css3如何开启动画的GPU加速(translate3d(0, 0, 0)) 行内元素padding margin有用吗  padding有用 margin左右有用，上下无效。  盒模型有哪两种，区别是啥  IE盒模型 border-box width = content宽度+padding+border W3C盒模型 content-box width = content宽度  常用移动端适配方案，border 1px在dpr比较大的手机上咋解决  传送门-掘金-移动端适配总结 感觉这篇文章里的适配代码是个无敌的答案  css水平垂直居中  table-cell absolute transform:translate flex grid  flex align-item align-content的区别  容器属性  flex-direction 主轴的方向 flex-wrap 主轴一行展示不下，如何换行 justify-content 项目在主轴上的对齐方式 align-items 项目在交叉轴上的对齐方式 align-content 多根轴线如何对齐  项目属性  order 项目的排列顺序 越小越靠前 默认0 flex-grow 项目的放大比例 默认为0 等于0不会放大。大于0，如果有剩余空间的情况下，项目1为x1，项目2为x2，则项目1占剩余空间的x1/(x1+x2) flex-shrink 项目的缩小比例 默认为1 等于0不参与缩小。ul width 100px。两个li宽100px，默认每个li都会被缩小1/(1+1)=1/2。第一个li 2，第二个li 3，则第一个li被缩小2/(2+3)=2/5，被缩小的实际宽度为2/5*100=40，剩余宽度为60。第一个li 为0，如果第二个li为0，那么两者都不缩小，第二个li 大于0，那么li实际宽度，第一个li不缩小。 flex-basis 项目的占据主轴的空间 默认auto flex-self 该项目单独的对齐方式   单行，多行文本超出省略号  单行文本溢出  width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;  多行文本溢出  :和::代表啥  :伪类 ::伪元素  JS部分 基本类型和引用类型在内存中是如何存储的  基本类型存储在栈内存 引用类型存储在堆内存 栈内存中存的是引用类型在堆内存中的地址 或者说存的是引用类型的引用  事件委托和事件代理 一个ul里面有很多个li的时候，如果想让每个li都有一个点击事件，不需要给每个li都去添加，只需要给ul添加一个就行了。</description>
+    </item>
+    
+  </channel>
+</rss>

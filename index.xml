@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CayChance の Blog</title>
+    <link>https://caychance.github.io/</link>
+    <description>Recent content on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Thu, 18 Mar 2021 23:15:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>前端面试-真题汇总1</title>
+      <link>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB1/</link>
+      <pubDate>Thu, 18 Mar 2021 23:15:24 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E7%9C%9F%E9%A2%98%E6%B1%87%E6%80%BB1/</guid>
+      <description>写在前面的话 由于疫情的影响，公司整体的运营情况不太理想，加之领导的一些“莫名其妙”的行为，就有了离职的想法了。
+一些心得和总结 1、由于疫情影响，基本都是视频面试了。百分之95都不用去现场，通几轮技术面到HR面都是网上进行的。使用的软件也是五花八门，瞩目，牛客网，微信视频，腾讯会议，或者各公司自己研发的视频软件。（伴鱼当时就邀请去现场面试，后来一想，路上太远，来回2小时，有这时间都能面两个了，所以就拒了；然后京东1、2面过了以后3，4面邀请去的现场，除此以外就没有让去现场面试的了）
+2、面试真的很随机，完全看整个部门，尤其是面试官本身
+3、大厂好多都会问算法题，不过一般就是leetcode的简单题目
+4、手写题也很常见，比如bind，promise，promise all，防抖节流，深拷贝，发布订阅-EventEmitter，快排等（手写题可参考项目utils.js文件）
+5、每一轮面试都要好好准备，三四面也可能会被刷掉
+美团： 1、this作用域 var scope = 123; var obj = { scope: 456, getScope: function () { var scope = 789; console.log(scope); console.log(this.scope); var f = function() { console.log(scope); console.log(this.scope); } f(); }, }; obj.getScope(); // 1、说一下打印结果 // 2、getScope改成箭头函数的打印结果  2、原型和原型链 function A() {} var a = new A() A.prototype A.__proto__ a.__proto__ a.prototype  3、实现一个myReduce方法，使得与reduce方法作用一致 4、拓展题 请实现 reverseObject(obj, startIndex, endIndex) 方法。 扩展题：如何做到算法复杂度最小 示例：reverseObject(obj, 2, 5) const obj = { value: 12, next: { value: 13, next: { value: 14, next: { value: 15, next: { value: 16 } } } } } 变成： { value: 12, next: { value: 16, next: { value: 15, next: { value: 14, next: { value: 13 } } } } }  快手： 一面 1、this 作用域 var name = &amp;#39;x&amp;#39; var people = { name: &amp;#39;y&amp;#39;, setName: function(name) { this.</description>
+    </item>
+    
+    <item>
+      <title>前端面试-面试题总结2</title>
+      <link>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%932/</link>
+      <pubDate>Thu, 18 Mar 2021 23:12:01 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%932/</guid>
+      <description>面试题部分 组件设计的原则  标准性 组件库要有统一设计原则，提供统一的api支持 独立性 组件要遵循单一职责原则，保持组件的纯粹性，除了统一的api对外提供，尽量不要和业务耦合 复用和易用 差异在内部消化，输入输出友好、易用 避免操作dom和使用ref 组件理论上只处理逻辑并不完成dom更新 良好统一的接口设计 合理的依赖关系，避免过度依赖和耦合过于严重 避免冗余状态 合理设置state，常亮和变量设置要合理  前端架构如何设计  一般分成项目层面的、标准化方面的、自动集成层面的 项目层面，用脚手架构建基本的开发目录，也就是src下，你还要重新划分这么几个目录：pages、components、store、utils、services、assets、styles。 标准化方面，可以从eslint、stylelint、git hooks、编辑器支持、等等方面着手，让代码更规范，甚至引入code review等等。 自动集成层面利用gitlab等工具，做自动化集成，部署等等。gitlab作为仓库，Jenkins作为发布平台。直接做那种自动push代码，自动发布功能。  前端提效  自动化部署平台 高效脚手架工具研发 组件库建设 自动化测试工具研发  webpack构建速度优化有哪些方式  分析打包速度和体积，合理进行优化  使用SMP(speed-measure-webpack-plugin) 速度分析 webpack-bundle-analyzer 体积分析  打包速度：
+ 多进程，多实例构建 thread-loader(将模块以及依赖分配给worker线程中) happypack(不建议对loader使用) parallel-webpack(可并行运行多个Webpack构建) 缩小打包作用域 exclude/include (确定 loader 规则范围，babel-loader不去解析node_modules) resolve.modules 指明第三方模块的绝对路径 (减少不必要的查找) resolve.extensions 尽可能减少后缀尝试的可能性 noParse 忽略不需要解析的库 Jquery, loadsh 利用缓存提升速率 babel-loader开启缓存 使用cache-loader等 开启DLL 分包。使用DllPlugin进行分包，能把第三方库代码分离开，每次文件更改的时候，它只会打包该项目自身的代码。合理使用manifest.json文件 减少对不频繁更新的库的编译。使用 DllPlugin 将不频繁更新的库进行编译以后，当这些依赖的版本没有变化时，就不需要重新编译  打包体积优化</description>
+    </item>
+    
+    <item>
+      <title>前端面试-常见手写题总结3</title>
+      <link>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B8%B8%E8%A7%81%E6%89%8B%E5%86%99%E9%A2%98%E6%80%BB%E7%BB%933/</link>
+      <pubDate>Thu, 18 Mar 2021 23:02:37 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95-%E5%B8%B8%E8%A7%81%E6%89%8B%E5%86%99%E9%A2%98%E6%80%BB%E7%BB%933/</guid>
+      <description>手写题部分 理解每个手写题的思路很重要，不需要死记硬背。
+// es5手写call Function.prototype.call = function (context) { var context = context || window; context.fn = this; var args = []; for (var i = 1, len = arguments.length; i &amp;lt; len; i++) { args.push(&amp;#34;arguments[&amp;#34; + i + &amp;#34;]&amp;#34;); } var result = eval(&amp;#34;context.fn(&amp;#34; + args + &amp;#34;)&amp;#34;); delete context.fn; return result; }; // es5手写apply Function.prototype.apply = function (context, arr) { var context = context || window; context.fn = this; var result; if (!</description>
+    </item>
+    
+    <item>
+      <title>url中带两个点会发生什么</title>
+      <link>https://caychance.github.io/posts/url%E4%B8%AD%E5%B8%A6%E4%B8%A4%E4%B8%AA%E7%82%B9%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88/</link>
+      <pubDate>Mon, 14 Dec 2020 22:21:50 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/url%E4%B8%AD%E5%B8%A6%E4%B8%A4%E4%B8%AA%E7%82%B9%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88/</guid>
+      <description>很久没有更新了~
+背景： 最近在做一个B端的内部应用系统，查找通讯录。遇到一个问题，觉得很有意思，在此记录一下。后端提供了几个接口来查询通讯录。接口地址大概是这样子的：
+url = `http://aa.bbb.com/user/search/${page}/${size}/${val}`  解释： get请求，要查询的数据就是val。前几天前端做了限制，不让用户输入一些特殊字符，今天产品说这块不做限制了。因此遇到了一个问题。
+现象： 测试过程中当输入两个点的时候，接口请求404。
+分析： 正常请求地址：http://aa.bbb.com/user/search/1/6/..
+浏览器中的实际访问地址：http://aa.bbb.com/user/search/1 因此导致接口返回404
+可亲自尝试一下： 在浏览器中访问： https://www.zhihu.com/question/422032638/answer/1522362574
+可以访问，虽然提示内容已删除。
+在浏览器中访问： https://www.zhihu.com/question/422032638/answer/../1522362574
+但是实际的访问地址变成： https://www.zhihu.com/question/422032638/1522362574
+解释： url中的点.有什么含义
+规范</description>
+    </item>
+    
+    <item>
+      <title>Express项目中使用Mongoose</title>
+      <link>https://caychance.github.io/posts/express%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8mongoose/</link>
+      <pubDate>Tue, 27 Oct 2020 10:52:28 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/express%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8mongoose/</guid>
+      <description>安装MongoDB 安装以及启动mongodb遇到好几个问题。
+首先，不能使用brew安装了，因为MongoDB不再开源了。
+后来就按照菜鸟教程上的安装方法进行安装：
+# 进入 /usr/local cd /usr/local # 下载 sudo curl -O https://fastdl.mongodb.org/osx/mongodb-osx-ssl-x86_64-4.0.9.tgz # 解压 sudo tar -zxvf mongodb-osx-ssl-x86_64-4.0.9.tgz # 重命名为 mongodb 目录 sudo mv mongodb-osx-x86_64-4.0.9/ mongodb  菜鸟教程
+启动MongoDB 为MongoDB新建默认目录的时候执行命令如下
+sudo mkdir -p /data/db  结果报错，后来网上查了一下发现最新版的Mac系统：不允许更改根目录
+后来就在mac上新建了一个非根目录的目录当做MongoDB的默认目录。当然需要确保~/data/db目录存在。
+mongod --dbpath ~/data/db  参考地址
+生成express应用 可以express-generator来快速生成express应用，当然首先需要安装好express-generator。
+express mongooseDemo  暖风博客园</description>
+    </item>
+    
+    <item>
+      <title>春节期间项目总结</title>
+      <link>https://caychance.github.io/posts/%E6%98%A5%E8%8A%82%E6%9C%9F%E9%97%B4%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Thu, 13 Feb 2020 13:58:52 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E6%98%A5%E8%8A%82%E6%9C%9F%E9%97%B4%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</guid>
+      <description>今年春节赶上了疫情，因此就在疫情期间，我们团队在家做了好几个项目。遇到一些问题，记录一下。
+主要做了四个项目，如下：  问卷调查项目 地址 疫情地图项目 地址 戴口罩项目 地址 找口罩项目 地址  问题总结收获如下：  苹果手机滚动不流畅问题
+解决方法：-webkit-overflow-scrolling: touch;
+ 上下滚动的轮播图 现象：疫情地图项目首页，有一个展示疫情资讯的轮播图。使用了vant的swipe轮播组件，遇到一个问题，随着滚动次数的增多，就会出现越来越大的偏移。
+  问题定位：通过定位问题发现，轮播图每次往上滚动的距离是 36.421875px，实际我们使用的是rem，rem的换算导致出现到小数点的距离，所以每次滚动都会出现偏移量，随着次数的增多，越来越明显。
+问题解决：更换了两次swipe组件后终于好了。 vue-awesome-swiper 传送门 点个赞~~~
+ dom没有渲染 现象：疫情项目首页，疫情地图tab，有一个本地疫情的卡片，前端获取到当前城市后，数据变了，但是页面没有改变。(PS:此处逻辑是前端调用后端接口获取定位，如果获取到定位，就展示当前定位城市的疫情，否则不展示。)  问题定位：vue中的数据变了，但是页面中没有更新。
+问题解决：强制重新渲染 this.$forceUpdate()
+ 两个span标签 同一行显示问题 现象：疫情项目，同行程查询页面。 其他及其后面的文字，都是用的是span标签。在设置了display: inline-block;后，其他及其后面的文字在后面的文字超出一行的时候，就不会同一行显示了。  问题解决：设置 display: inline-block; 为 display: inline; 或者说不设置就不会有这个问题。(PS:当时是另一个同事写的)
+PS: css也不简单
+ vue中监听对象的某个属性  computed: { urlHead(){ return this.projectInfo.urlHead } }, watch: { urlHead(newVal, oldVal){ this.servicePrefixListLabel=this.projectInfo.urlHead.split(&amp;#39;://{host}:&amp;#39;)[0], this.host=this.projectInfo.urlHead.split(&amp;#39;://{host}:&amp;#39;)[1] }, }   vue移动端项目粘贴功能  问题描述：刚开始使用的是 clipboard这个包，但是遇到了一些问题。按钮的点击事件根据情况，可以复制，也可以跳转页面。</description>
+    </item>
+    
+    <item>
+      <title>小结</title>
+      <link>https://caychance.github.io/posts/%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Tue, 26 Nov 2019 19:16:39 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%B0%8F%E7%BB%93/</guid>
+      <description>最近开发的过程中遇到一些之前没有遇到过的写法，记录一下。
+ 使用 install 方法写一个插件，全局使用。  import table from &amp;#39;./src/table&amp;#39;; /* istanbul ignore next */ table.install = function(Vue) { Vue.component(table.name, table); }; export default table;  main.js 中引入一次
+import Vue from &amp;#39;vue&amp;#39; import defaultTable from &amp;#39;@/components/table&amp;#39; Vue.use(defaultTable)   main.js中new Vue的写法  ... new Vue({ el: &amp;#39;#app&amp;#39;, store, data: { busEvent: new Vue() //用于组件通信  }, router, components: { App }, template: &amp;#39;&amp;lt;App/&amp;gt;&amp;#39;, created() { this.getLoginInfo() }, methods: { getLoginInfo(){ this.</description>
+    </item>
+    
+    <item>
+      <title>滚动穿透处理方案</title>
+      <link>https://caychance.github.io/posts/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Mon, 11 Nov 2019 20:55:09 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</guid>
+      <description>之前看到过一些关于滚动穿透和点击穿透的文章，一般滚动穿透会比较常见，但是点击穿透却不怎么常见。之前的产品也没有要求过处理滚动穿透，所以也就没怎么处理过。
+先说下业务场景：当前浏览的页面很长，是可以滚动的。页面上会出现弹框，弹框还可以滚动，这个时候就会有滚动穿透的问题了。
+网上找到了一个思路特别简单的方法：弹窗打开的时候，给body设置 position: fixed;width: 100%;top: 0px;，让body脱离文档流，这个时候页面就不能滚动，按时弹窗还是可以滚动的。等弹窗关闭的时候，再把body设置恢复就行了。
+贴上一个demo：如下。由于页面中遇到了3，4个遮罩层。所以就没有给每个click去添加，而且监测遮罩层的打开关闭——即变量layerShow。layerShow等于true即遮罩被打开的时候，获取dom的scrollTop，然后设置body的样式为position: fixed;width: 100%;top: ${-this.sctop}px;。当layerShow等于false即遮罩被关闭的时候，设置body样式恢复原状，然后让页面滚动到原来的位置window.scrollTo(0, this.sctop)
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;blackbox&amp;#34; v-show=&amp;#34;layerShow&amp;#34; class=&amp;#34;layer&amp;#34;&amp;gt; &amp;lt;div @click=&amp;#34;closeLayer&amp;#34; class=&amp;#34;layer-bg&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;slot-wrapper&amp;#34;&amp;gt; &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { data() { return { sctop: 0 }; }, props: { layerShow: { type: Boolean, default: false } }, watch: { layerShowValue(newValue, oldValue) { if(newValue) { this.sctop = document.body.scrollTop || document.documentElement.scrollTop document.body.style.cssText = `position: fixed;width: 100%;top: ${-this .sctop}px;`; } else { document.</description>
+    </item>
+    
+    <item>
+      <title>IView使用中遇到的一些坑</title>
+      <link>https://caychance.github.io/posts/iview%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</link>
+      <pubDate>Thu, 31 Oct 2019 11:53:35 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/iview%E4%BD%BF%E7%94%A8%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</guid>
+      <description>最近开发中使用iView遇到了一个问题，困扰了很久。使用了iView的Modal组件和Form组件。
+问题总结 iView的Modal组件中暴露两个事件——点击确定和取消的回调。@on-ok和@on-cancel。如果Modal中嵌入表单并且表单需要校验的话，不可以使用Modal提供的on-ok方法。需要自己加一个Button单独添加事件来处理。
+&amp;lt;Modal title=&amp;#34;修改名称&amp;#34; v-model=&amp;#34;setAliasModal&amp;#34; :mask-closable=&amp;#34;false&amp;#34; @on-cancel=&amp;#34;resetSetAlias&amp;#34;&amp;gt; &amp;lt;Form ref=&amp;#34;setalias&amp;#34; :model=&amp;#34;setAliasData&amp;#34; :label-width=&amp;#34;80&amp;#34; :rules=&amp;#34;aliasrules&amp;#34;&amp;gt; &amp;lt;FormItem label=&amp;#34;方法名称&amp;#34; prop=&amp;#34;aliasName&amp;#34;&amp;gt; &amp;lt;Input v-model=&amp;#34;setAliasData.aliasName&amp;#34; :maxlength=&amp;#34;25&amp;#34; placeholder=&amp;#34;请输入新的方法名(最长不超过25)&amp;#34;&amp;gt;&amp;lt;/Input&amp;gt; &amp;lt;/FormItem&amp;gt; &amp;lt;/Form&amp;gt; &amp;lt;template slot=&amp;#34;footer&amp;#34;&amp;gt; &amp;lt;Button type=&amp;#34;text&amp;#34; @click=&amp;#34;resetSetAlias&amp;#34;&amp;gt;取消&amp;lt;/Button&amp;gt; &amp;lt;Button type=&amp;#34;primary&amp;#34; @click=&amp;#34;setAliasHandleSubmit&amp;#34;&amp;gt;保存&amp;lt;/Button&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;/Modal&amp;gt; 需求描述 需求是Modal组件中嵌套Form组件，需要进行表单规则校验，如果校验通过，则关闭Modal进行后续逻辑；如果校验不通过，那么Modal不能关闭，提示用户规则校验不通过。
+Form表单提供了 this.$refs[&amp;quot;xxx&amp;quot;].validate 方法来校验规则。
+如果使用Modal提供的@on-ok事件来处理的话，不管校验是否通过，都会默认关闭Modal的。
+所以处理的方法，是不要使用Modal提供的@on-ok方法，自己写两个Button来分别处理取消和确定的事件。</description>
+    </item>
+    
+    <item>
+      <title>如何给Highchart折线图添加阴影</title>
+      <link>https://caychance.github.io/posts/%E5%A6%82%E4%BD%95%E7%BB%99highchart%E6%8A%98%E7%BA%BF%E5%9B%BE%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/</link>
+      <pubDate>Thu, 31 Oct 2019 11:52:54 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E5%A6%82%E4%BD%95%E7%BB%99highchart%E6%8A%98%E7%BA%BF%E5%9B%BE%E6%B7%BB%E5%8A%A0%E9%98%B4%E5%BD%B1/</guid>
+      <description>最近遇到一些使用Highcharts开发图表的需求，需要把图表设置成带shadow的。类似这样子的效果：
+由于英文不太好，中文文档又不太齐全。害得我花了好半天的时间。配置在倒数第7行的代码
+// 设置如下 { chart: { events: { // 加载页面的时候绘制一些按钮之类的东西  load: function(event) { let x = event.target.chartWidth * 0.5; this.flashText = this.renderer .text( `&amp;lt;div align=&amp;#34;right&amp;#34; &amp;gt;&amp;lt;div id=&amp;#34;${item.key}&amp;#34; style=&amp;#34;display:none;&amp;#34;&amp;gt;&amp;lt;button style=&amp;#34;height:31px;width:84px;background:&amp;#34;#f7f7f7&amp;#34; class=&amp;#34;btn green pull-right&amp;#34; data-toggle=&amp;#34;modal&amp;#34;&amp;gt;&amp;lt;font size=&amp;#34;2&amp;#34;&amp;gt;&amp;lt;b&amp;gt;detail info&amp;lt;/b&amp;gt;&amp;lt;/font&amp;gt;&amp;lt;/button&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;`, x + 100, 20, true ) .attr({ zIndex: 101 }) .add(); }, // 图表放大的时候  selection: event =&amp;gt; { if (event.xAxis) { let btn = document.getElementById(`${item.key}`); btn.style.display = &amp;#34;block&amp;#34;; btn.removeEventListener(&amp;#34;click&amp;#34;, this.detailInfo); let min = Math.</description>
+    </item>
+    
+  </channel>
+</rss>

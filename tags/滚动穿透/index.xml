@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>滚动穿透 on CayChance の Blog</title>
+    <link>https://caychance.github.io/tags/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F/</link>
+    <description>Recent content in 滚动穿透 on CayChance の Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 11 Nov 2019 20:55:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://caychance.github.io/tags/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>滚动穿透处理方案</title>
+      <link>https://caychance.github.io/posts/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Mon, 11 Nov 2019 20:55:09 +0800</pubDate>
+      
+      <guid>https://caychance.github.io/posts/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</guid>
+      <description>之前看到过一些关于滚动穿透和点击穿透的文章，一般滚动穿透会比较常见，但是点击穿透却不怎么常见。之前的产品也没有要求过处理滚动穿透，所以也就没怎么处理过。
+先说下业务场景：当前浏览的页面很长，是可以滚动的。页面上会出现弹框，弹框还可以滚动，这个时候就会有滚动穿透的问题了。
+网上找到了一个思路特别简单的方法：弹窗打开的时候，给body设置 position: fixed;width: 100%;top: 0px;，让body脱离文档流，这个时候页面就不能滚动，按时弹窗还是可以滚动的。等弹窗关闭的时候，再把body设置恢复就行了。
+贴上一个demo：如下。由于页面中遇到了3，4个遮罩层。所以就没有给每个click去添加，而且监测遮罩层的打开关闭——即变量layerShow。layerShow等于true即遮罩被打开的时候，获取dom的scrollTop，然后设置body的样式为position: fixed;width: 100%;top: ${-this.sctop}px;。当layerShow等于false即遮罩被关闭的时候，设置body样式恢复原状，然后让页面滚动到原来的位置window.scrollTo(0, this.sctop)
+&amp;lt;template&amp;gt; &amp;lt;div id=&amp;#34;blackbox&amp;#34; v-show=&amp;#34;layerShow&amp;#34; class=&amp;#34;layer&amp;#34;&amp;gt; &amp;lt;div @click=&amp;#34;closeLayer&amp;#34; class=&amp;#34;layer-bg&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;slot-wrapper&amp;#34;&amp;gt; &amp;lt;slot&amp;gt;&amp;lt;/slot&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { data() { return { sctop: 0 }; }, props: { layerShow: { type: Boolean, default: false } }, watch: { layerShowValue(newValue, oldValue) { if(newValue) { this.sctop = document.body.scrollTop || document.documentElement.scrollTop document.body.style.cssText = `position: fixed;width: 100%;top: ${-this .sctop}px;`; } else { document.</description>
+    </item>
+    
+  </channel>
+</rss>
